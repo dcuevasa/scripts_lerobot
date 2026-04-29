@@ -1,0 +1,1 @@
+lerobot-teleoperate   --robot.type=so101_mujoco   --teleop.type=so101_vuer   --robot.camera_pos_base='[-0.4, 0.2, 0.6]'   --robot.camera_pos_delta='[0.0, 0.0, 0.0]'   --robot.camera_euler_base='[0.0, 2.35619, 1.5708]'   --robot.camera_euler_delta='[0.0, 0.0, 0.0]'

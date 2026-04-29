@@ -1,0 +1,1 @@
+rm -rf /home/sinfonia/.cache/huggingface/lerobot/bendca61/svla_so101_mujoco_pickplace

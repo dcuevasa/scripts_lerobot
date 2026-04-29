@@ -1,0 +1,15 @@
+lerobot-train \
+  --dataset.repo_id=bendca61/svla_so101_mujoco_pickplace \
+  --output_dir=outputs/train/smolvla_post \
+  --job_name=smolvla_post \
+  --policy.path="lerobot/smolvla_base" \
+  --steps=10000 \
+  --batch_size=8 \
+  --num_workers=8 \
+  --policy.device=cuda \
+  --policy.use_amp=true \
+  --policy.compile_model=true \
+  --policy.compile_mode=max-autotune \
+  --rename_map='{"observation.images.realsense": "observation.images.image"}' \
+  --policy.input_features='{"observation.images.image": {"type": "VISUAL", "shape": [3, 480, 640]}, "observation.state": {"type": "STATE", "shape": [6]}}' \
+  --policy.push_to_hub=false

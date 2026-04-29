@@ -1,0 +1,22 @@
+lerobot-train \
+  --dataset.repo_id=bendca61/svla_so101_mujoco_pickplace \
+  --output_dir=outputs/train/xvla_so101_newdtst \
+  --job_name=xvla_so101 \
+  --policy.path="lerobot/xvla-base" \
+  --policy.dtype=bfloat16 \
+  --steps=1000 \
+  --batch_size=1 \
+  --num_workers=2 \
+  --policy.device=cuda \
+  --policy.use_amp=true \
+  --policy.freeze_vision_encoder=true \
+  --policy.freeze_language_encoder=true \
+  --policy.train_policy_transformer=true \
+  --policy.train_soft_prompts=true \
+  --policy.num_image_views=1 \
+  --policy.max_state_dim=20 \
+  --policy.max_action_dim=20 \
+  --policy.action_mode=auto \
+  --rename_map='{"observation.images.realsense": "observation.images.image"}' \
+  --policy.input_features='{"observation.images.image": {"type": "VISUAL", "shape": [3, 480, 640]}, "observation.state": {"type": "STATE", "shape": [8]}}' \
+  --policy.push_to_hub=false

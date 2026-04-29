@@ -1,0 +1,11 @@
+lerobot-train \
+  --dataset.repo_id=bendca61/vla-mujoco-so101-cube_on_tray-leader-v1 \
+  --policy.type=act \
+  --wandb.enable=false \
+  --output_dir=outputs/train/act_full_shift \
+  --job_name=act_test \
+  --policy.device=cuda \
+  --steps=5000 \
+  --batch_size=8 \
+  --num_workers=8 \
+  --policy.push_to_hub=false

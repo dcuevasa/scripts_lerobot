@@ -1,0 +1,13 @@
+lerobot-train \
+  --dataset.repo_id=bendca61/svla_so101_mujoco_pickplace \
+  --steps=1000 \
+  --policy.type=smolvla \
+  --policy.push_to_hub=false \
+  --policy.use_amp=true \
+  --policy.compile_model=true \
+  --policy.compile_mode=max-autotune \
+  --policy.device=cuda \
+  --output_dir=outputs/train/smolvla_mujoco_pickplace3 \
+  --job_name=smolvla_mujoco_pickplace \
+  --num_workers=8 \
+  --batch_size=8

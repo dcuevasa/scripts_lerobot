@@ -1,0 +1,20 @@
+lerobot-train \
+  --dataset.repo_id=bendca61/svla_so101_mujoco_pickplace \
+  --output_dir=outputs/train/pi0_so101 \
+  --job_name=pi0_so101 \
+  --policy.type=pi0 \
+  --policy.pretrained_path="lerobot/pi0_base" \
+  --steps=15000 \
+  --batch_size=1 \
+  --num_workers=2 \
+  --policy.device=cuda \
+  --policy.use_amp=true \
+  --policy.dtype=bfloat16 \
+  --policy.compile_model=true \
+  --policy.compile_mode=max-autotune \
+  --policy.gradient_checkpointing=true \
+  --policy.freeze_vision_encoder=true \
+  --policy.train_expert_only=true \
+  --rename_map='{"observation.images.realsense": "observation.images.image"}' \
+  --policy.input_features='{"observation.images.image": {"type": "VISUAL", "shape": [3, 480, 640]}, "observation.state": {"type": "STATE", "shape": [6]}}' \
+  --policy.push_to_hub=false

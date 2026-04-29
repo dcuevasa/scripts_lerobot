@@ -1,0 +1,1 @@
+lerobot-dataset-viz --repo-id local/eval_svla_so101_mujoco_pickplace --episode-index 0 --mode local --num-workers 0
