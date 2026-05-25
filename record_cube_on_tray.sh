@@ -1,5 +1,5 @@
 . dcuevas_hf_token.sh
-python ../FLAG-Embodied-data/lerobot_record_sim.py \
+../lerobot_venv/Scripts/python ../FLAG-Embodied-data/lerobot_record_sim.py \
   --robot.type=so101_mujoco \
   --robot.randomize_scene=true \
   --robot.camera_pos_base='[0.5, 0.5, 0.6]' \
@@ -11,7 +11,7 @@ python ../FLAG-Embodied-data/lerobot_record_sim.py \
   --dataset.repo_id=bendca61/mujoco-so101-cube_on_tray-mouse-v1 \
   --dataset.single_task="Put the cube on the tray" \
   --dataset.episode_time_s=25 \
-  --dataset.num_episodes=3 \
+  --dataset.num_episodes=1 \
   --reset_every_episode=true \
   --display_data=true \
   --resume=true
