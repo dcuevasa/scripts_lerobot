@@ -11,14 +11,15 @@
 #
 # Uso:
 #   .\eval_all_tasks.ps1
-#   .\eval_all_tasks.ps1 -N_EPISODES 10
+#   .\eval_all_tasks.ps1 -N_EPISODES 10 -EPISODE_TIME_S 120
 #   .\eval_all_tasks.ps1 -N_EPISODES 3 -Tasks @("cube_on_tray","stack_cube")
 # ==============================================================================
 
 param(
-    [int]$N_EPISODES  = 5,
-    [string[]]$Tasks  = @(),
-    [string]$OutputRoot = (Join-Path $PSScriptRoot "eval_results")
+    [int]$N_EPISODES     = 5,
+    [int]$EPISODE_TIME_S = 1000,
+    [string[]]$Tasks     = @(),
+    [string]$OutputRoot  = (Join-Path $PSScriptRoot "eval_results")
 )
 
 $ErrorActionPreference = "Stop"
@@ -29,7 +30,7 @@ $ErrorActionPreference = "Stop"
 #    Puede ser un Hub ID o una ruta local al pretrained_model.
 # ------------------------------------------------------------------------------
 $MODELS = @(
-    "CarlosMunoz0/smolvla-so101-merged-4-tasks-20000step_bs16_ep400-v2.1"
+    "CarlosMunoz0/smolvla-so101-merged-4-tasks-30000step_bs16_ep400-v2.1"
     # "CarlosMunoz0/smolvla-so101-merged-4-tasks-30000step_bs16_ep400-v2.1"
     # "C:/ruta/local/checkpoints/last/pretrained_model"
 )
@@ -40,11 +41,10 @@ $MODELS = @(
 $TASK_DEFS = [ordered]@{
 
     cube_on_tray = @{
-        Label       = "Put the cube on the tray"
-        XmlPath     = "./robotstudio_so101/so101_cube_on_tray.xml"
-        Randomize   = "true"
-        EpisodeTime = 300
-        TaskArgs    = @(
+        Label     = "Put the cube on the tray"
+        XmlPath   = "./robotstudio_so101/so101_cube_on_tray.xml"
+        Randomize = "true"
+        TaskArgs  = @(
             "--robot.camera_pos_base=[0.5, 0.5, 0.6]"
             "--robot.camera_euler_base=[2.35619,0,-0.78539]"
             "--robot.box_pos_base=[0.35, 0.2, 0.03]"
@@ -63,11 +63,10 @@ $TASK_DEFS = [ordered]@{
     }
 
     stack_cube = @{
-        Label       = "Stack the black cube on top of the blue cube"
-        XmlPath     = "./robotstudio_so101/so101_stack_cube.xml"
-        Randomize   = "true"
-        EpisodeTime = 300
-        TaskArgs    = @(
+        Label     = "Stack the black cube on top of the blue cube"
+        XmlPath   = "./robotstudio_so101/so101_stack_cube.xml"
+        Randomize = "true"
+        TaskArgs  = @(
             "--robot.camera_pos_base=[0.5, 0.5, 0.6]"
             "--robot.camera_euler_base=[2.35619,0,-0.78539]"
             "--robot.box_pos_base=[0.25, 0.08, 0.03]"
@@ -86,11 +85,10 @@ $TASK_DEFS = [ordered]@{
     }
 
     push_cube_to_tray = @{
-        Label       = "Push the block into the tray"
-        XmlPath     = "./robotstudio_so101/so101_push_cube_to_tray.xml"
-        Randomize   = "true"
-        EpisodeTime = 300
-        TaskArgs    = @(
+        Label     = "Push the block into the tray"
+        XmlPath   = "./robotstudio_so101/so101_push_cube_to_tray.xml"
+        Randomize = "true"
+        TaskArgs  = @(
             "--robot.camera_pos_base=[0.5, 0.5, 0.6]"
             "--robot.camera_euler_base=[2.35619,0,-0.78539]"
             "--robot.box_pos_base=[0.35, 0.0, 0.04]"
@@ -109,11 +107,10 @@ $TASK_DEFS = [ordered]@{
     }
 
     take_out_box = @{
-        Label       = "Take the block out of the tray"
-        XmlPath     = "./robotstudio_so101/so101_take_out_box.xml"
-        Randomize   = "true"
-        EpisodeTime = 300
-        TaskArgs    = @(
+        Label     = "Take the block out of the tray"
+        XmlPath   = "./robotstudio_so101/so101_take_out_box.xml"
+        Randomize = "true"
+        TaskArgs  = @(
             "--robot.camera_pos_base=[0.5, 0.5, 0.6]"
             "--robot.camera_euler_base=[2.35619,0,-0.78539]"
             "--robot.tray_pos_base=[0.35, 0.0, 0.01]"
@@ -169,7 +166,7 @@ $summary    = @()
 
 Write-Host ""
 Write-Host "======================================================" -ForegroundColor Cyan
-$headerMsg = "  Eval batch: $($MODELS.Count) modelo(s) x $(@($ActiveTasks).Count) tarea(s) x $N_EPISODES ep"
+$headerMsg = "  Eval batch: $($MODELS.Count) modelo(s) x $(@($ActiveTasks).Count) tarea(s) x $N_EPISODES ep x $EPISODE_TIME_S s"
 Write-Host $headerMsg -ForegroundColor Cyan
 Write-Host "  Salida: $OutputRoot" -ForegroundColor Cyan
 Write-Host "======================================================" -ForegroundColor Cyan
@@ -213,7 +210,7 @@ foreach ($modelPath in $MODELS) {
         ) + $t.TaskArgs + @(
             "--dataset.repo_id=$evalRepo"
             "--dataset.single_task=$($t.Label)"
-            "--dataset.episode_time_s=$($t.EpisodeTime)"
+            "--dataset.episode_time_s=$EPISODE_TIME_S"
             "--dataset.num_episodes=$N_EPISODES"
             "--dataset.push_to_hub=false"
             '--dataset.rename_map={"observation.images.realsense": "observation.images.image"}'
