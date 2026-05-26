@@ -29,22 +29,22 @@ if (-not $env:HF_TOKEN) {
 Write-Host "Política: $POLICY_PATH"
 Write-Host "Eval dataset: $EVAL_REPO"
 Write-Host "Tarea: Put the cube on the tray"
-Write-Host "Escena: cubo [0.35, 0, 0.03] -> bandeja [0.35, 0.2, 0.01] (leader5)"
+Write-Host "Escena: cubo [0.35, 0.2, 0.03] ±[0.05,0.05] -> bandeja [0.1, 0.35, 0.01] (joystick-v1)"
 Write-Host ""
 
 python (Join-Path $PSScriptRoot "run_smolvla_merged.py") `
   --robot.type=so101_mujoco `
   --robot.xml_path="./robotstudio_so101/so101_cube_on_tray.xml" `
-  --robot.randomize_scene=false `
+  --robot.randomize_scene=true `
   --robot.camera_pos_base="[0.5, 0.5, 0.6]" `
   --robot.camera_euler_base="[2.35619,0,-0.78539]" `
-  --robot.box_pos_base="[0.35, 0.0, 0.03]" `
-  --robot.box_pos_delta="[0.0, 0.0, 0.0]" `
+  --robot.box_pos_base="[0.35, 0.2, 0.03]" `
+  --robot.box_pos_delta="[0.05, 0.05, 0.0]" `
   --robot.box_size_base="[0.02, 0.02, 0.03]" `
   --robot.box_size_delta="[0.0, 0.0, 0.0]" `
   --robot.box_color_base="[0.1, 0.1, 0.1, 1.0]" `
   --robot.box_color_delta="[0.0, 0.0, 0.0, 0.0]" `
-  --robot.tray_pos_base="[0.35, 0.2, 0.01]" `
+  --robot.tray_pos_base="[0.1, 0.35, 0.01]" `
   --robot.tray_pos_delta="[0.0, 0.0, 0.0]" `
   --robot.tray_size_base="[0.08, 0.08, 0.01]" `
   --robot.tray_size_delta="[0.0, 0.0, 0.0]" `
