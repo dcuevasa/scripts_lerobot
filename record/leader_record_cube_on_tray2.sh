@@ -1,6 +1,7 @@
-. dcuevas_hf_token.sh
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+. "$SCRIPT_DIR/../dcuevas_hf_token.sh"
 sudo chmod  666 /dev/ttyACM0
-python ../FLAG-Embodied-data/lerobot_record_sim.py \
+python "$SCRIPT_DIR/../../FLAG-Embodied-data/lerobot_record_sim.py \
   --robot.type=so101_mujoco \
   --robot.randomize_scene=true \
   --robot.camera_pos_base='[0.5, 0.5, 0.6]' \

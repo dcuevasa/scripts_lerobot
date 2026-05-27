@@ -1,0 +1,595 @@
+
+May 21  12:48:31.329
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Run: STEPS=1000 | batch=16 | episodes=305 | job=smolvla_merged_1000step_bs16_ep305 | hub=CarlosMunoz0/smolvla-so101-merged-1000step_bs16_ep305-v1 | volume_path=/outputs/train/smolvla_merged_1000step_bs16_ep305
+May 21  12:48:31.330
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Running: lerobot-train --dataset.repo_id=CarlosMunoz0/vla-mujoco-so101-merged-v1 --output_dir=/outputs/train/smolvla_merged_1000step_bs16_ep305 --job_name=smolvla_merged_1000step_bs16_ep305 --resume=false --policy.path=lerobot/smolvla_base --steps=1000 --batch_size=16 --num_workers=4 --policy.device=cuda --policy.use_amp=true --rename_map={"observation.images.realsense": "observation.images.image"} --policy.input_features={"observation.images.image": {"type": "VISUAL", "shape": [3, 480, 640]}, "observation.state": {"type": "STATE", "shape": [6]}} --policy.push_to_hub=true --wandb.enable=false --policy.repo_id=CarlosMunoz0/smolvla-so101-merged-1000step_bs16_ep305-v1
+May 21  12:48:49.391
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	WARNING:accelerate.utils.other:[RANK 0] Detected kernel version 4.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+May 21  12:48:49.396
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:49 ot_train.py:197 {'batch_size': 16, 'checkpoint_path': None, 'cudnn_deterministic': False, 'dataset': {'episodes': None, 'image_transforms': {'enable': False, 'max_num_transforms': 3, 'random_order': False, 'tfs': {'affine': {'kwargs': {'degrees': [-5.0, 5.0], 'translate': [0.05, 0.05]}, 'type': 'RandomAffine', 'weight': 1.0}, 'brightness': {'kwargs': {'brightness': [0.8, 1.2]}, 'type': 'ColorJitter', 'weight': 1.0}, 'contrast': {'kwargs': {'contrast': [0.8, 1.2]}, 'type': 'ColorJitter', 'weight': 1.0}, 'hue': {'kwargs': {'hue': [-0.05, 0.05]}, 'type': 'ColorJitter', 'weight': 1.0}, 'saturation': {'kwargs': {'saturation': [0.5, 1.5]}, 'type': 'ColorJitter', 'weight': 1.0}, 'sharpness': {'kwargs': {'sharpness': [0.5, 1.5]}, 'type': 'SharpnessJitter', 'weight': 1.0}}}, 'repo_id': 'CarlosMunoz0/vla-mujoco-so101-merged-v1', 'revision': None, 'root': None, 'streaming': False, 'use_imagenet_stats': True, 'video_backend': 'torchcodec'}, 'env': None, 'eval': {'batch_size': 50, 'n_episodes': 50, 'use_async_envs': False}, 'eval_freq': 20000, 'job_name': 'smolvla_merged_1000step_bs16_ep305', 'log_freq': 200, 'num_workers': 4, 'optimizer': {'betas': [0.9, 0.95], 'eps': 1e-08, 'grad_clip_norm': 10.0, 'lr': 0.0001, 'type': 'adamw', 'weight_decay': 1e-10}, 'output_dir': '/outputs/train/smolvla_merged_1000step_bs16_ep305', 'peft': None, 'policy': {'adapt_to_pi_aloha': False, 'add_image_special_tokens': False, 'attention_mode': 'cross_attn', 'chunk_size': 50, 'compile_mode': 'max-autotune', 'compile_model': False, 'device': 'cuda', 'empty_cameras': 0, 'expert_width_multiplier': 0.75, 'freeze_vision_encoder': True, 'input_features': {'observation.images.camera1': {'shape': [3, 256, 256], 'type': <FeatureType.VISUAL: 'VISUAL'>}, 'observation.images.camera2': {'shape': [3, 256, 256], 'type': <FeatureType.VISUAL: 'VISUAL'>}, 'observation.images.camera3': {'shape': [3, 256, 256], 'type': <FeatureType.VISUAL: 'VISUAL'>}, 'observation.images.image': {'shape': [3, 480, 640], 'type': <FeatureType.VISUAL: 'VISUAL'>}, 'observation.state': {'shape': [6], 'type': <FeatureType.STATE: 'STATE'>}}, 'license': None, 'load_vlm_weights': True, 'max_action_dim': 32, 'max_period': 4.0, 'max_state_dim': 32, 'min_period': 0.004, 'n_action_steps': 50, 'n_obs_steps': 1, 'normalization_mapping': {'ACTION': <NormalizationMode.MEAN_STD: 'MEAN_STD'>, 'STATE': <NormalizationMode.MEAN_STD: 'MEAN_STD'>, 'VISUAL': <NormalizationMode.IDENTITY: 'IDENTITY'>}, 'num_expert_layers': 0, 'num_steps': 10, 'num_vlm_layers': 16, 'optimizer_betas': [0.9, 0.95], 'optimizer_eps': 1e-08, 'optimizer_grad_clip_norm': 10.0, 'optimizer_lr': 0.0001, 'optimizer_weight_decay': 1e-10, 'output_features': {'action': {'shape': [6], 'type': <FeatureType.ACTION: 'ACTION'>}}, 'pad_language_to': 'max_length', 'prefix_length': 0, 'pretrained_path': 'lerobot/smolvla_base', 'private': None, 'push_to_hub': True, 'repo_id': 'CarlosMunoz0/smolvla-so101-merged-1000step_bs16_ep305-v1', 'resize_imgs_with_padding': [512, 512], 'rtc_config': None, 'scheduler_decay_lr': 2.5e-06, 'scheduler_decay_steps': 30000, 'scheduler_warmup_steps': 1000, 'self_attn_every_n_layers': 2, 'tags': None, 'tokenizer_max_length': 48, 'train_expert_only': True, 'train_state_proj': True, 'type': 'smolvla', 'use_amp': True, 'use_cache': True, 'use_delta_joint_actions_aloha': False, 'use_peft': False, 'vlm_model_name': 'HuggingFaceTB/SmolVLM2-500M-Video-Instruct'}, 'rabc_epsilon': 1e-06, 'rabc_head_mode': 'sparse', 'rabc_kappa': 0.01, 'rabc_progress_path': None, 'rename_map': {'observation.images.realsense': 'observation.images.image'}, 'resume': False, 'save_checkpoint': True, 'save_freq': 20000, 'scheduler': {'decay_lr': 2.5e-06, 'num_decay_steps': 30000, 'num_warmup_steps': 1000, 'peak_lr': 0.0001, 'type': 'cosine_decay_with_warmup'}, 'seed': 1000, 'steps': 1000, 'tolerance_s': 0.0001, 'use_policy_training_preset': True, 'use_rabc': False, 'wandb': {'disable_artifact': False, 'enable': False, 'entity': None, 'mode': None, 'notes': None, 'project': 'lerobot', 'run_id': None}}
+May 21  12:48:49.396
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:49 ot_train.py:205 Logs will be saved locally.
+May 21  12:48:49.401
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:49 ot_train.py:221 Creating dataset
+May 21  12:48:49.540
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:49 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/refs "HTTP/1.1 200 OK"
+May 21  12:48:49.696
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:49 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/revision/v3.0 "HTTP/1.1 200 OK"
+May 21  12:48:49.862
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Fetching 4 files: 0%| | 0/4 [00:00<?, ?it/s]INFO 2026-05-21 17:48:49 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/meta/info.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:48:49.929
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:49 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/meta/episodes/chunk-000/file-000.parquet "HTTP/1.1 302 Found"
+May 21  12:48:49.993
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:49 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/meta/stats.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:48:49.994
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:49 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/meta%2Finfo.json "HTTP/1.1 200 OK"
+May 21  12:48:50.001
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:50 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/meta/tasks.parquet "HTTP/1.1 302 Found"
+May 21  12:48:50.080
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:50 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/xet-read-token/6e50429f4077315f92c53bbee730aed745b8f88d "HTTP/1.1 200 OK"
+May 21  12:48:50.123
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:50 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/meta%2Finfo.json "HTTP/1.1 200 OK"
+May 21  12:48:50.125
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:50 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/meta%2Fstats.json "HTTP/1.1 200 OK"
+May 21  12:48:50.139
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:50 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/xet-read-token/6e50429f4077315f92c53bbee730aed745b8f88d "HTTP/1.1 200 OK"
+May 21  12:48:50.256
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:50 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/meta%2Fstats.json "HTTP/1.1 200 OK"
+May 21  12:48:51.806
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Fetching 4 files: 100%|██████████| 4/4 [00:02<00:00, 1.91it/s]
+May 21  12:48:52.063
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:52 eo_utils.py:106 Using video codec: libsvtav1
+May 21  12:48:52.364
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:52 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/refs "HTTP/1.1 200 OK"
+May 21  12:48:52.501
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:52 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/revision/v3.0 "HTTP/1.1 200 OK"
+May 21  12:48:52.651
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Fetching 50 files: 0%| | 0/50 [00:00<?, ?it/s]INFO 2026-05-21 17:48:52 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/README.md "HTTP/1.1 307 Temporary Redirect"
+May 21  12:48:52.660
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:52 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/data/chunk-000/file-000.parquet "HTTP/1.1 302 Found"
+May 21  12:48:52.668
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:52 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-000.mp4 "HTTP/1.1 302 Found"
+May 21  12:48:52.686
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:52 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-002.mp4 "HTTP/1.1 302 Found"
+May 21  12:48:52.687
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:52 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-001.mp4 "HTTP/1.1 302 Found"
+May 21  12:48:52.736
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:52 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/.gitattributes "HTTP/1.1 307 Temporary Redirect"
+May 21  12:48:52.747
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:52 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-004.mp4 "HTTP/1.1 302 Found"
+May 21  12:48:52.754
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:52 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-003.mp4 "HTTP/1.1 302 Found"
+May 21  12:48:52.780
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:52 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/README.md "HTTP/1.1 200 OK"
+May 21  12:48:52.867
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:52 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/.gitattributes "HTTP/1.1 200 OK"
+May 21  12:48:52.914
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:52 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/README.md "HTTP/1.1 200 OK"
+May 21  12:48:52.996
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:52 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/.gitattributes "HTTP/1.1 200 OK"
+May 21  12:48:53.055
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Fetching 50 files: 2%|▏ | 1/50 [00:00<00:23, 2.04it/s]INFO 2026-05-21 17:48:53 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-005.mp4 "HTTP/1.1 302 Found"
+May 21  12:48:53.140
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:53 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-006.mp4 "HTTP/1.1 302 Found"
+May 21  12:48:54.630
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Fetching 50 files: 6%|▌ | 3/50 [00:01<00:31, 1.48it/s]INFO 2026-05-21 17:48:54 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-007.mp4 "HTTP/1.1 302 Found"
+May 21  12:48:57.021
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:57 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-008.mp4 "HTTP/1.1 302 Found"
+May 21  12:48:57.261
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:57 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-009.mp4 "HTTP/1.1 302 Found"
+May 21  12:48:57.451
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:57 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-010.mp4 "HTTP/1.1 302 Found"
+May 21  12:48:57.818
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Fetching 50 files: 16%|█▌ | 8/50 [00:05<00:26, 1.56it/s]INFO 2026-05-21 17:48:57 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-011.mp4 "HTTP/1.1 302 Found"
+May 21  12:48:57.925
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:57 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-012.mp4 "HTTP/1.1 302 Found"
+May 21  12:48:57.950
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Fetching 50 files: 26%|██▌ | 13/50 [00:05<00:12, 2.89it/s]INFO 2026-05-21 17:48:57 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-014.mp4 "HTTP/1.1 302 Found"
+May 21  12:48:57.980
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:57 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-013.mp4 "HTTP/1.1 302 Found"
+May 21  12:48:58.165
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:48:58 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-015.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:00.541
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Fetching 50 files: 32%|███▏ | 16/50 [00:07<00:16, 2.05it/s]INFO 2026-05-21 17:49:00 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-016.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:01.432
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:01 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-017.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:02.212
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Fetching 50 files: 36%|███▌ | 18/50 [00:09<00:17, 1.78it/s]INFO 2026-05-21 17:49:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-019.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:02.214
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-018.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:02.365
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-020.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:02.410
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-021.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:03.167
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Fetching 50 files: 40%|████ | 20/50 [00:10<00:15, 1.93it/s]INFO 2026-05-21 17:49:03 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-022.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:03.397
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Fetching 50 files: 42%|████▏ | 21/50 [00:10<00:13, 2.14it/s]INFO 2026-05-21 17:49:03 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-023.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:05.665
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:05 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-024.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:06.073
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:06 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-026.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:06.094
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:06 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-025.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:06.155
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:06 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-027.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:06.247
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:06 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-028.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:06.634
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:06 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-029.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:06.881
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:06 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-030.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:09.297
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:09 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-031.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:09.299
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:09 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-000.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:09.491
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:09 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-001.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:09.663
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:09 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-002.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:09.762
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:09 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-003.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:09.922
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:09 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-004.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:10.546
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:10 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-005.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:13.741
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:13 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-006.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:14.108
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:14 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-007.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:14.226
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:14 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-008.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:14.590
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:14 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-009.mp4 "HTTP/1.1 302 Found"
+May 21  12:49:14.718
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:49:14 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-010.mp4 "HTTP/1.1 302 Found"
+May 21  12:50:28.864
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Fetching 50 files: 100%|██████████| 50/50 [01:36<00:00, 1.93s/it]
+May 21  12:50:29.025
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:29 ot_train.py:239 Creating policy
+May 21  12:50:29.044
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Loading HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+May 21  12:50:29.208
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:29 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:29.332
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:29 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/config.json "HTTP/1.1 200 OK"
+May 21  12:50:29.466
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:29 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/config.json "HTTP/1.1 200 OK"
+May 21  12:50:29.470
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	`torch_dtype` is deprecated! Use `dtype` instead!
+May 21  12:50:29.633
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:29 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+May 21  12:50:29.776
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:29 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/xet-read-token/7b375e1b73b11138ff12fe22c8f2822d8fe03467 "HTTP/1.1 200 OK"
+May 21  12:50:36.750
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Loading weights: 100%|██████████| 489/489 [00:01<00:00, 377.47it/s]
+May 21  12:50:36.923
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:36 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:37.058
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:37 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/generation_config.json "HTTP/1.1 200 OK"
+May 21  12:50:37.189
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:37 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/generation_config.json "HTTP/1.1 200 OK"
+May 21  12:50:37.328
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:37 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:37.456
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:37 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  12:50:37.585
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:37 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  12:50:37.754
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:37 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+May 21  12:50:37.898
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:37 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:37.909
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:37 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  12:50:38.045
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:38 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/chat_template.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:38.172
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:38 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/chat_template.json "HTTP/1.1 200 OK"
+May 21  12:50:38.433
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:38 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/chat_template.json "HTTP/1.1 200 OK"
+May 21  12:50:38.569
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:38 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+May 21  12:50:38.710
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:38 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/audio_tokenizer_config.json "HTTP/1.1 404 Not Found"
+May 21  12:50:38.898
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:38 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+May 21  12:50:39.033
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:39 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:39.047
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:39 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  12:50:39.183
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:39 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/chat_template.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:39.197
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:39 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/chat_template.json "HTTP/1.1 200 OK"
+May 21  12:50:39.332
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:39 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+May 21  12:50:39.471
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:39 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/audio_tokenizer_config.json "HTTP/1.1 404 Not Found"
+May 21  12:50:39.606
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:39 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:39.616
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:39 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  12:50:39.757
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:39 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:39.886
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:39 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/preprocessor_config.json "HTTP/1.1 200 OK"
+May 21  12:50:40.012
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:40 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/preprocessor_config.json "HTTP/1.1 200 OK"
+May 21  12:50:40.163
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:40 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:40.174
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:40 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  12:50:40.399
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:40 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:40.412
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:40 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/preprocessor_config.json "HTTP/1.1 200 OK"
+May 21  12:50:40.549
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:40 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:40.559
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:40 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/config.json "HTTP/1.1 200 OK"
+May 21  12:50:40.714
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:40 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:40.844
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:40 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/tokenizer_config.json "HTTP/1.1 200 OK"
+May 21  12:50:40.972
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:40 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/tokenizer_config.json "HTTP/1.1 200 OK"
+May 21  12:50:41.119
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:41 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+May 21  12:50:41.266
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:41 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+May 21  12:50:41.405
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:41 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/vocab.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:41.532
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:41 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/vocab.json "HTTP/1.1 200 OK"
+May 21  12:50:41.665
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:41 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/vocab.json "HTTP/1.1 200 OK"
+May 21  12:50:41.819
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:41 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/merges.txt "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:41.945
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:41 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/merges.txt "HTTP/1.1 200 OK"
+May 21  12:50:42.022
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:42 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/merges.txt "HTTP/1.1 200 OK"
+May 21  12:50:42.188
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:42 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/added_tokens.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:42.314
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:42 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/added_tokens.json "HTTP/1.1 200 OK"
+May 21  12:50:42.443
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:42 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/added_tokens.json "HTTP/1.1 200 OK"
+May 21  12:50:42.585
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:42 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/special_tokens_map.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:42.714
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:42 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/special_tokens_map.json "HTTP/1.1 200 OK"
+May 21  12:50:42.751
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:42 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/special_tokens_map.json "HTTP/1.1 200 OK"
+May 21  12:50:42.894
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:42 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/tokenizer.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:43.027
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:43 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/tokenizer.json "HTTP/1.1 200 OK"
+May 21  12:50:43.064
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:43 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/tokenizer.json "HTTP/1.1 200 OK"
+May 21  12:50:43.525
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:43 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:43.540
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:43 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  12:50:43.677
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:43 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+May 21  12:50:43.818
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:43 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:43.836
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:43 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/preprocessor_config.json "HTTP/1.1 200 OK"
+May 21  12:50:43.974
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:43 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:43.984
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:43 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  12:50:44.120
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:44 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+May 21  12:50:44.267
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:44 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:44.279
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:44 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/preprocessor_config.json "HTTP/1.1 200 OK"
+May 21  12:50:44.522
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Reducing the number of VLM layers to 16 ...
+May 21  12:50:49.906
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:49 _client.py:1025 HTTP Request: HEAD https://huggingface.co/lerobot/smolvla_base/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+May 21  12:50:50.044
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:50 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/lerobot/smolvla_base/xet-read-token/c83c3163b8ca9b7e67c509fffd9121e66cb96205 "HTTP/1.1 200 OK"
+May 21  12:50:56.491
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:56 _client.py:1025 HTTP Request: HEAD https://huggingface.co/lerobot/smolvla_base/resolve/main/policy_preprocessor.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:56.618
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:56 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/lerobot/smolvla_base/c83c3163b8ca9b7e67c509fffd9121e66cb96205/policy_preprocessor.json "HTTP/1.1 200 OK"
+May 21  12:50:56.653
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:56 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/lerobot/smolvla_base/c83c3163b8ca9b7e67c509fffd9121e66cb96205/policy_preprocessor.json "HTTP/1.1 200 OK"
+May 21  12:50:56.789
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:56 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:56.801
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:56 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/config.json "HTTP/1.1 200 OK"
+May 21  12:50:56.941
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:56 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:56.953
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:56 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/tokenizer_config.json "HTTP/1.1 200 OK"
+May 21  12:50:57.096
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:57 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+May 21  12:50:57.248
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:57 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+May 21  12:50:57.857
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:57 _client.py:1025 HTTP Request: HEAD https://huggingface.co/lerobot/smolvla_base/resolve/main/policy_preprocessor_step_5_normalizer_processor.safetensors "HTTP/1.1 302 Found"
+May 21  12:50:58.236
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:58 _client.py:1025 HTTP Request: HEAD https://huggingface.co/lerobot/smolvla_base/resolve/main/policy_postprocessor.json "HTTP/1.1 307 Temporary Redirect"
+May 21  12:50:58.269
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:58 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/lerobot/smolvla_base/c83c3163b8ca9b7e67c509fffd9121e66cb96205/policy_postprocessor.json "HTTP/1.1 200 OK"
+May 21  12:50:58.401
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:58 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/lerobot/smolvla_base/c83c3163b8ca9b7e67c509fffd9121e66cb96205/policy_postprocessor.json "HTTP/1.1 200 OK"
+May 21  12:50:58.545
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:58 _client.py:1025 HTTP Request: HEAD https://huggingface.co/lerobot/smolvla_base/resolve/main/policy_postprocessor_step_0_unnormalizer_processor.safetensors "HTTP/1.1 302 Found"
+May 21  12:50:58.548
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:58 ot_train.py:294 Creating optimizer and scheduler
+May 21  12:50:58.550
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:58 hedulers.py:105 Auto-scaling LR scheduler: num_training_steps (1000) < num_decay_steps (30000). Scaling warmup: 1000 → 33, decay: 30000 → 1000 (scale factor: 0.033)
+May 21  12:50:58.553
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:58 ot_train.py:329 Output dir: /outputs/train/smolvla_merged_1000step_bs16_ep305
+May 21  12:50:58.553
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:58 ot_train.py:336 cfg.steps=1000 (1K)
+May 21  12:50:58.553
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:58 ot_train.py:337 dataset.num_frames=297016 (297K)
+May 21  12:50:58.553
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:58 ot_train.py:338 dataset.num_episodes=305
+May 21  12:50:58.553
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:58 ot_train.py:341 Effective batch size: 16 x 1 = 16
+May 21  12:50:58.553
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:58 ot_train.py:342 num_learnable_params=99880992 (100M)
+May 21  12:50:58.553
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:50:58 ot_train.py:343 num_total_params=450046176 (450M)
+May 21  12:50:58.568
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 0%| | 0/1000 [00:00<?, ?step/s]INFO 2026-05-21 17:50:58 ot_train.py:407 Start offline training on a fixed dataset, with effective batch size: 16
+May 21  12:51:04.372
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 1%| | 8/1000 [00:05<05:09, 3.20step/s]
+May 21  12:51:24.047
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 11%|█ | 106/1000 [00:25<02:58, 5.00step/s]
+May 21  12:51:29.004
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 13%|█▎ | 131/1000 [00:30<02:49, 5.12step/s]
+May 21  12:51:42.711
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 20%|██ | 200/1000 [00:44<02:37, 5.09step/s]INFO 2026-05-21 17:51:42 ot_train.py:439 step:200 smpl:3K ep:3 epch:0.01 loss:0.044 grdn:0.903 lr:8.9e-05 updt_s:0.191 data_s:0.027
+May 21  12:51:49.239
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 23%|██▎ | 233/1000 [00:50<02:29, 5.12step/s]
+May 21  12:52:09.384
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 34%|███▎ | 335/1000 [01:10<02:09, 5.15step/s]
+May 21  12:52:22.269
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 40%|████ | 400/1000 [01:23<02:00, 4.98step/s]INFO 2026-05-21 17:52:22 ot_train.py:439 step:400 smpl:6K ep:7 epch:0.02 loss:0.030 grdn:0.663 lr:7.9e-05 updt_s:0.180 data_s:0.016
+May 21  12:52:29.604
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 44%|████▎ | 437/1000 [01:31<01:52, 5.01step/s]
+May 21  12:52:43.031
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 50%|█████ | 504/1000 [01:44<01:38, 5.06step/s]
+May 21  12:52:45.998
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 52%|█████▏ | 519/1000 [01:47<01:35, 5.06step/s]
+May 21  12:53:01.920
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 60%|██████ | 600/1000 [02:03<01:16, 5.24step/s]INFO 2026-05-21 17:53:01 ot_train.py:439 step:600 smpl:10K ep:10 epch:0.03 loss:0.022 grdn:0.497 lr:5.1e-05 updt_s:0.180 data_s:0.016
+May 21  12:53:06.138
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 62%|██████▏ | 621/1000 [02:07<01:16, 4.95step/s]
+May 21  12:53:26.916
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 72%|███████▏ | 723/1000 [02:28<00:54, 5.07step/s]
+May 21  12:53:42.467
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 80%|████████ | 800/1000 [02:43<00:40, 4.97step/s]INFO 2026-05-21 17:53:42 ot_train.py:439 step:800 smpl:13K ep:13 epch:0.04 loss:0.018 grdn:0.381 lr:2.3e-05 updt_s:0.184 data_s:0.016
+May 21  12:53:47.427
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 82%|████████▎ | 825/1000 [02:48<00:35, 4.95step/s]
+May 21  12:54:02.899
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 90%|█████████ | 902/1000 [03:04<00:19, 4.99step/s]
+May 21  12:54:22.255
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 100%|██████████| 1000/1000 [03:23<00:00, 5.11step/s]INFO 2026-05-21 17:54:22 ot_train.py:439 step:1K smpl:16K ep:16 epch:0.05 loss:0.016 grdn:0.309 lr:5.6e-06 updt_s:0.181 data_s:0.016
+May 21  12:54:22.255
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:22 ot_train.py:459 Checkpoint policy after step 1000
+May 21  12:54:25.581
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Training: 100%|██████████| 1000/1000 [03:27<00:00, 4.83step/s]
+May 21  12:54:25.581
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:25 ot_train.py:533 End of training
+May 21  12:54:26.155
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:26 _client.py:1025 HTTP Request: POST https://huggingface.co/api/repos/create "HTTP/1.1 200 OK"
+May 21  12:54:27.380
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:27 _client.py:1025 HTTP Request: POST https://huggingface.co/api/validate-yaml "HTTP/1.1 200 OK"
+May 21  12:54:27.526
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:27 _client.py:1025 HTTP Request: POST https://huggingface.co/api/validate-yaml "HTTP/1.1 200 OK"
+May 21  12:54:29.896
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:29 _client.py:1025 HTTP Request: POST https://huggingface.co/api/validate-yaml "HTTP/1.1 200 OK"
+May 21  12:54:30.166
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:30 _client.py:1025 HTTP Request: POST https://huggingface.co/api/models/CarlosMunoz0/smolvla-so101-merged-1000step_bs16_ep305-v1/preupload/main "HTTP/1.1 200 OK"
+May 21  12:54:30.323
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:30 _client.py:1025 HTTP Request: POST https://huggingface.co/CarlosMunoz0/smolvla-so101-merged-1000step_bs16_ep305-v1.git/info/lfs/objects/batch "HTTP/1.1 200 OK"
+May 21  12:54:30.461
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:30 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/CarlosMunoz0/smolvla-so101-merged-1000step_bs16_ep305-v1/xet-write-token/main "HTTP/1.1 200 OK"
+May 21  12:54:30.462
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 0) : | | 0.00B / 0.00B
+May 21  12:54:30.462
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : | | 0.00B / 0.00B
+May 21  12:54:31.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	
+May 21  12:54:31.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	...p305-v1/model.safetensors: 0%| | 608kB / 907MB
+May 21  12:54:31.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 0%| | 608kB / 907MB, 59.0kB/s
+May 21  12:54:31.749
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 0%| | 608kB / 134MB, 59.0kB/s
+May 21  12:54:32.248
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	...p305-v1/model.safetensors: 0%| | 608kB / 907MB
+May 21  12:54:32.249
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 1%| | 6.09MB / 907MB, 576kB/s
+May 21  12:54:32.500
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 3%|▎ | 6.09MB / 201MB, 576kB/s
+May 21  12:54:32.500
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 1%|▏ | 12.8MB / 907MB, 1.19MB/s
+May 21  12:54:32.749
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 6%|▋ | 12.8MB / 201MB, 1.19MB/s
+May 21  12:54:32.749
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 3%|▎ | 29.3MB / 907MB, 2.71MB/s
+May 21  12:54:33.013
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 15%|█▍ | 29.3MB / 201MB, 2.71MB/s
+May 21  12:54:33.250
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 5%|▍ | 42.2MB / 907MB, 3.85MB/s New Data Upload : 21%|██ | 42.2MB / 201MB, 3.85MB/s
+May 21  12:54:33.250
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 7%|▋ | 60.0MB / 907MB, 5.41MB/s
+May 21  12:54:33.503
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 30%|██▉ | 60.0MB / 201MB, 5.41MB/s
+May 21  12:54:33.504
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 8%|▊ | 69.3MB / 907MB, 6.15MB/s
+May 21  12:54:33.748
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 34%|███▍ | 69.3MB / 201MB, 6.15MB/s
+May 21  12:54:33.749
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 9%|▊ | 79.3MB / 907MB, 6.92MB/s
+May 21  12:54:33.999
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 39%|███▉ | 79.3MB / 201MB, 6.92MB/s
+May 21  12:54:33.999
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 10%|▉ | 89.2MB / 907MB, 7.67MB/s
+May 21  12:54:34.248
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 44%|████▍ | 89.2MB / 201MB, 7.67MB/s
+May 21  12:54:34.249
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 11%|█▏ | 103MB / 907MB, 8.78MB/s
+May 21  12:54:34.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 51%|█████▏ | 103MB / 201MB, 8.78MB/s
+May 21  12:54:34.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 12%|█▏ | 113MB / 907MB, 9.42MB/s
+May 21  12:54:35.250
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 56%|█████▌ | 113MB / 201MB, 9.42MB/s
+May 21  12:54:35.250
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 13%|█▎ | 121MB / 907MB, 9.55MB/s
+May 21  12:54:35.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 60%|██████ | 121MB / 201MB, 9.55MB/s
+May 21  12:54:35.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 14%|█▍ | 125MB / 907MB, 9.67MB/s
+May 21  12:54:35.749
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 62%|██████▏ | 125MB / 201MB, 9.67MB/s
+May 21  12:54:35.749
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 14%|█▍ | 129MB / 907MB, 9.83MB/s
+May 21  12:54:35.999
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 64%|██████▍ | 129MB / 201MB, 9.83MB/s
+May 21  12:54:35.999
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 15%|█▍ | 133MB / 907MB, 9.93MB/s
+May 21  12:54:36.249
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 66%|██████▌ | 133MB / 201MB, 9.93MB/s
+May 21  12:54:36.249
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 36%|███▌ | 328MB / 907MB, 26.7MB/s
+May 21  12:54:36.498
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 67%|██████▋ | 136MB / 201MB, 9.98MB/s
+May 21  12:54:36.498
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 49%|████▉ | 443MB / 907MB, 36.1MB/s
+May 21  12:54:36.749
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 53%|█████▎ | 142MB / 268MB, 10.3MB/s
+May 21  12:54:36.749
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 55%|█████▌ | 502MB / 907MB, 40.3MB/s
+May 21  12:54:36.999
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 57%|█████▋ | 153MB / 268MB, 11.0MB/s
+May 21  12:54:36.999
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 77%|███████▋ | 701MB / 907MB, 56.6MB/s
+May 21  12:54:37.248
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 62%|██████▏ | 166MB / 268MB, 11.9MB/s
+May 21  12:54:37.249
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 85%|████████▌ | 771MB / 907MB, 61.4MB/s
+May 21  12:54:37.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 57%|█████▋ | 177MB / 313MB, 12.6MB/s
+May 21  12:54:37.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 86%|████████▋ | 783MB / 907MB, 61.1MB/s
+May 21  12:54:37.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	
+May 21  12:54:37.749
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 61%|██████ | 189MB / 313MB, 13.4MB/s
+May 21  12:54:37.749
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 88%|████████▊ | 801MB / 907MB, 61.3MB/s
+May 21  12:54:37.999
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 66%|██████▌ | 207MB / 313MB, 14.6MB/s
+May 21  12:54:37.999
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 90%|█████████ | 820MB / 907MB, 61.6MB/s
+May 21  12:54:38.249
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 72%|███████▏ | 226MB / 313MB, 15.9MB/s
+May 21  12:54:38.249
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 92%|█████████▏| 834MB / 907MB, 61.5MB/s
+May 21  12:54:38.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 77%|███████▋ | 240MB / 313MB, 16.7MB/s
+May 21  12:54:38.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 93%|█████████▎| 847MB / 907MB, 61.3MB/s
+May 21  12:54:38.748
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 81%|████████ | 253MB / 313MB, 17.4MB/s
+May 21  12:54:38.749
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 95%|█████████▍| 859MB / 907MB, 61.1MB/s
+May 21  12:54:38.999
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 85%|████████▍ | 265MB / 313MB, 18.1MB/s
+May 21  12:54:38.999
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 96%|█████████▌| 871MB / 907MB, 60.8MB/s
+May 21  12:54:39.249
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 89%|████████▊ | 277MB / 313MB, 18.7MB/s
+May 21  12:54:39.249
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 98%|█████████▊| 888MB / 907MB, 60.9MB/s
+May 21  12:54:39.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 94%|█████████▍| 294MB / 313MB, 19.7MB/s
+May 21  12:54:39.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 98%|█████████▊| 891MB / 907MB, 59.9MB/s
+May 21  12:54:39.750
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 95%|█████████▌| 297MB / 313MB, 19.6MB/s
+May 21  12:54:39.750
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 99%|█████████▊| 895MB / 907MB, 59.0MB/s
+May 21  12:54:39.999
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 96%|█████████▌| 301MB / 313MB, 19.5MB/s
+May 21  12:54:39.999
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 99%|█████████▉| 899MB / 907MB, 58.1MB/s
+May 21  12:54:40.248
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 97%|█████████▋| 304MB / 313MB, 19.4MB/s
+May 21  12:54:40.248
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 100%|█████████▉| 903MB / 907MB, 57.3MB/s
+May 21  12:54:40.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 99%|█████████▉| 309MB / 313MB, 19.4MB/s
+May 21  12:54:40.499
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 1) : 100%|█████████▉| 906MB / 907MB, 56.4MB/s
+May 21  12:54:41.250
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 100%|█████████▉| 312MB / 313MB, 19.2MB/s
+May 21  12:54:41.250
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (1 / 1) : 100%|██████████| 907MB / 907MB, 53.0MB/s
+May 21  12:54:42.046
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (1 / 1) : 100%|██████████| 907MB / 907MB, 53.0MB/s
+May 21  12:54:42.046
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : 100%|██████████| 313MB / 313MB, 18.1MB/s
+May 21  12:54:42.046
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	...p305-v1/model.safetensors: 100%|██████████| 907MB / 907MB
+May 21  12:54:43.727
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:43 _client.py:1025 HTTP Request: POST https://huggingface.co/api/models/CarlosMunoz0/smolvla-so101-merged-1000step_bs16_ep305-v1/commit/main "HTTP/1.1 200 OK"
+May 21  12:54:43.728
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:43 etrained.py:245 Model pushed to https://huggingface.co/CarlosMunoz0/smolvla-so101-merged-1000step_bs16_ep305-v1
+May 21  12:54:43.869
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:43 _client.py:1025 HTTP Request: POST https://huggingface.co/api/repos/create "HTTP/1.1 409 Conflict"
+May 21  12:54:44.042
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:44 _client.py:1025 HTTP Request: POST https://huggingface.co/api/models/CarlosMunoz0/smolvla-so101-merged-1000step_bs16_ep305-v1/preupload/main "HTTP/1.1 200 OK"
+May 21  12:54:44.189
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:44 _client.py:1025 HTTP Request: POST https://huggingface.co/CarlosMunoz0/smolvla-so101-merged-1000step_bs16_ep305-v1.git/info/lfs/objects/batch "HTTP/1.1 200 OK"
+May 21  12:54:44.190
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 0) : | | 0.00B / 0.00B
+May 21  12:54:44.459
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : | | 0.00B / 0.00B
+May 21  12:54:44.459
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	...zer_processor.safetensors: 100%|██████████| 7.63kB / 7.63kB
+May 21  12:54:44.884
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (1 / 1) : 100%|██████████| 7.63kB / 7.63kB, ???B/s
+May 21  12:54:44.884
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : | | 0.00B / 0.00B, ???B/s
+May 21  12:54:44.884
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	...zer_processor.safetensors: 100%|██████████| 7.63kB / 7.63kB
+May 21  12:54:46.028
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:46 _client.py:1025 HTTP Request: POST https://huggingface.co/api/models/CarlosMunoz0/smolvla-so101-merged-1000step_bs16_ep305-v1/commit/main "HTTP/1.1 200 OK"
+May 21  12:54:46.174
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:46 _client.py:1025 HTTP Request: POST https://huggingface.co/api/repos/create "HTTP/1.1 409 Conflict"
+May 21  12:54:46.554
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:46 _client.py:1025 HTTP Request: POST https://huggingface.co/api/models/CarlosMunoz0/smolvla-so101-merged-1000step_bs16_ep305-v1/preupload/main "HTTP/1.1 200 OK"
+May 21  12:54:46.699
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:46 _client.py:1025 HTTP Request: POST https://huggingface.co/CarlosMunoz0/smolvla-so101-merged-1000step_bs16_ep305-v1.git/info/lfs/objects/batch "HTTP/1.1 200 OK"
+May 21  12:54:46.701
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (0 / 0) : | | 0.00B / 0.00B
+May 21  12:54:46.724
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	New Data Upload : | | 0.00B / 0.00B
+May 21  12:54:46.725
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	...zer_processor.safetensors: 100%|██████████| 7.63kB / 7.63kB
+May 21  12:54:47.292
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Processing Files (1 / 1) : 100%|██████████| 7.63kB / 7.63kB, ???B/s New Data Upload : | | 0.00B / 0.00B, ???B/s
+May 21  12:54:47.292
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	...zer_processor.safetensors: 100%|██████████| 7.63kB / 7.63kB
+May 21  12:54:48.417
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	INFO 2026-05-21 17:54:48 _client.py:1025 HTTP Request: POST https://huggingface.co/api/models/CarlosMunoz0/smolvla-so101-merged-1000step_bs16_ep305-v1/commit/main "HTTP/1.1 200 OK"
+May 21  12:54:51.805
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	in-01KS5TEA27CW1JN3STBKM3427S	Done. Checkpoints under volume 'smolvla-lerobot-outputs' -> /outputs/train/smolvla_merged_1000step_bs16_ep305
+May 21  12:54:51.980
+—	—	Stopping app - local entrypoint completed.
+May 21  12:54:56.287
+ta-01KS5TEAXE4PWEB5JXP3KPGG0X	—	Runner terminated.

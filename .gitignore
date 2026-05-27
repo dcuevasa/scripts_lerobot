@@ -1,3 +1,5 @@
 outputs/
 temp_dataset_prune/
 *hf_token*
+
+__pycache__/

@@ -59,6 +59,7 @@ python (Join-Path $PSScriptRoot "run_smolvla_merged.py") `
   --dataset.single_task="Stack the black cube on top of the blue cube" `
   --dataset.episode_time_s=1000 `
   --dataset.num_episodes=1 `
+  --dataset.reset_time_s=0 `
   --dataset.push_to_hub=false `
   '--dataset.rename_map={"observation.images.realsense": "observation.images.image"}' `
   --policy.path=$POLICY_PATH `

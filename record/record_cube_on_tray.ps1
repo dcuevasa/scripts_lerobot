@@ -1,5 +1,5 @@
 # Requires a companion token script in PowerShell form.
-. "$PSScriptRoot/../lerobot_venv/Scripts/Activate.ps1"
+. "$PSScriptRoot/../../lerobot_venv/Scripts/Activate.ps1"
 
 $tokenScript = Join-Path $PSScriptRoot "dcuevas_hf_token.ps1"
 if (Test-Path $tokenScript) {
@@ -8,7 +8,7 @@ if (Test-Path $tokenScript) {
   Write-Warning "No se encontro dcuevas_hf_token.ps1 y HF_TOKEN no esta definida. Si el script necesita autenticacion con Hugging Face, define la variable de entorno HF_TOKEN o crea ese archivo."
 }
 
-& "$PSScriptRoot/../lerobot_venv/Scripts/python.exe" "$PSScriptRoot/../FLAG-Embodied-data/lerobot_record_sim.py" `
+& "$PSScriptRoot/../../lerobot_venv/Scripts/python.exe" "$PSScriptRoot/../../FLAG-Embodied-data/lerobot_record_sim.py" `
   --robot.type=so101_mujoco `
   --robot.randomize_scene=true `
   --robot.camera_pos_base='[0.5, 0.5, 0.6]' `

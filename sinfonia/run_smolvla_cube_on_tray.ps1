@@ -59,7 +59,6 @@ python (Join-Path $PSScriptRoot "run_smolvla_merged.py") `
   --dataset.single_task="Put the cube on the tray" `
   --dataset.episode_time_s=300 `
   --dataset.num_episodes=1 `
-  --dataset.reset_time_s=0 `
   --dataset.push_to_hub=false `
   '--dataset.rename_map={"observation.images.realsense": "observation.images.image"}' `
   --policy.path=$POLICY_PATH `

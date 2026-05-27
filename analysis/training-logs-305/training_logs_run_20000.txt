@@ -1,0 +1,1223 @@
+
+May 21  14:58:43.595
+Run: STEPS=20000 | batch=16 | episodes=305 | job=smolvla_merged_20000step_bs16_ep305 | hub=CarlosMunoz0/smolvla-so101-merged-20000step_bs16_ep305-v1 | volume_path=/outputs/train/smolvla_merged_20000step_bs16_ep305
+May 21  14:58:43.596
+Running: lerobot-train --dataset.repo_id=CarlosMunoz0/vla-mujoco-so101-merged-v1 --output_dir=/outputs/train/smolvla_merged_20000step_bs16_ep305 --job_name=smolvla_merged_20000step_bs16_ep305 --resume=false --policy.path=lerobot/smolvla_base --steps=20000 --batch_size=16 --num_workers=4 --policy.device=cuda --policy.use_amp=true --rename_map={"observation.images.realsense": "observation.images.image"} --policy.input_features={"observation.images.image": {"type": "VISUAL", "shape": [3, 480, 640]}, "observation.state": {"type": "STATE", "shape": [6]}} --policy.push_to_hub=true --wandb.enable=false --policy.repo_id=CarlosMunoz0/smolvla-so101-merged-20000step_bs16_ep305-v1
+May 21  14:59:00.594
+WARNING:accelerate.utils.other:[RANK 0] Detected kernel version 4.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+May 21  14:59:00.600
+INFO 2026-05-21 19:59:00 ot_train.py:197 {'batch_size': 16, 'checkpoint_path': None, 'cudnn_deterministic': False, 'dataset': {'episodes': None, 'image_transforms': {'enable': False, 'max_num_transforms': 3, 'random_order': False, 'tfs': {'affine': {'kwargs': {'degrees': [-5.0, 5.0], 'translate': [0.05, 0.05]}, 'type': 'RandomAffine', 'weight': 1.0}, 'brightness': {'kwargs': {'brightness': [0.8, 1.2]}, 'type': 'ColorJitter', 'weight': 1.0}, 'contrast': {'kwargs': {'contrast': [0.8, 1.2]}, 'type': 'ColorJitter', 'weight': 1.0}, 'hue': {'kwargs': {'hue': [-0.05, 0.05]}, 'type': 'ColorJitter', 'weight': 1.0}, 'saturation': {'kwargs': {'saturation': [0.5, 1.5]}, 'type': 'ColorJitter', 'weight': 1.0}, 'sharpness': {'kwargs': {'sharpness': [0.5, 1.5]}, 'type': 'SharpnessJitter', 'weight': 1.0}}}, 'repo_id': 'CarlosMunoz0/vla-mujoco-so101-merged-v1', 'revision': None, 'root': None, 'streaming': False, 'use_imagenet_stats': True, 'video_backend': 'torchcodec'}, 'env': None, 'eval': {'batch_size': 50, 'n_episodes': 50, 'use_async_envs': False}, 'eval_freq': 20000, 'job_name': 'smolvla_merged_20000step_bs16_ep305', 'log_freq': 200, 'num_workers': 4, 'optimizer': {'betas': [0.9, 0.95], 'eps': 1e-08, 'grad_clip_norm': 10.0, 'lr': 0.0001, 'type': 'adamw', 'weight_decay': 1e-10}, 'output_dir': '/outputs/train/smolvla_merged_20000step_bs16_ep305', 'peft': None, 'policy': {'adapt_to_pi_aloha': False, 'add_image_special_tokens': False, 'attention_mode': 'cross_attn', 'chunk_size': 50, 'compile_mode': 'max-autotune', 'compile_model': False, 'device': 'cuda', 'empty_cameras': 0, 'expert_width_multiplier': 0.75, 'freeze_vision_encoder': True, 'input_features': {'observation.images.camera1': {'shape': [3, 256, 256], 'type': <FeatureType.VISUAL: 'VISUAL'>}, 'observation.images.camera2': {'shape': [3, 256, 256], 'type': <FeatureType.VISUAL: 'VISUAL'>}, 'observation.images.camera3': {'shape': [3, 256, 256], 'type': <FeatureType.VISUAL: 'VISUAL'>}, 'observation.images.image': {'shape': [3, 480, 640], 'type': <FeatureType.VISUAL: 'VISUAL'>}, 'observation.state': {'shape': [6], 'type': <FeatureType.STATE: 'STATE'>}}, 'license': None, 'load_vlm_weights': True, 'max_action_dim': 32, 'max_period': 4.0, 'max_state_dim': 32, 'min_period': 0.004, 'n_action_steps': 50, 'n_obs_steps': 1, 'normalization_mapping': {'ACTION': <NormalizationMode.MEAN_STD: 'MEAN_STD'>, 'STATE': <NormalizationMode.MEAN_STD: 'MEAN_STD'>, 'VISUAL': <NormalizationMode.IDENTITY: 'IDENTITY'>}, 'num_expert_layers': 0, 'num_steps': 10, 'num_vlm_layers': 16, 'optimizer_betas': [0.9, 0.95], 'optimizer_eps': 1e-08, 'optimizer_grad_clip_norm': 10.0, 'optimizer_lr': 0.0001, 'optimizer_weight_decay': 1e-10, 'output_features': {'action': {'shape': [6], 'type': <FeatureType.ACTION: 'ACTION'>}}, 'pad_language_to': 'max_length', 'prefix_length': 0, 'pretrained_path': 'lerobot/smolvla_base', 'private': None, 'push_to_hub': True, 'repo_id': 'CarlosMunoz0/smolvla-so101-merged-20000step_bs16_ep305-v1', 'resize_imgs_with_padding': [512, 512], 'rtc_config': None, 'scheduler_decay_lr': 2.5e-06, 'scheduler_decay_steps': 30000, 'scheduler_warmup_steps': 1000, 'self_attn_every_n_layers': 2, 'tags': None, 'tokenizer_max_length': 48, 'train_expert_only': True, 'train_state_proj': True, 'type': 'smolvla', 'use_amp': True, 'use_cache': True, 'use_delta_joint_actions_aloha': False, 'use_peft': False, 'vlm_model_name': 'HuggingFaceTB/SmolVLM2-500M-Video-Instruct'}, 'rabc_epsilon': 1e-06, 'rabc_head_mode': 'sparse', 'rabc_kappa': 0.01, 'rabc_progress_path': None, 'rename_map': {'observation.images.realsense': 'observation.images.image'}, 'resume': False, 'save_checkpoint': True, 'save_freq': 20000, 'scheduler': {'decay_lr': 2.5e-06, 'num_decay_steps': 30000, 'num_warmup_steps': 1000, 'peak_lr': 0.0001, 'type': 'cosine_decay_with_warmup'}, 'seed': 1000, 'steps': 20000, 'tolerance_s': 0.0001, 'use_policy_training_preset': True, 'use_rabc': False, 'wandb': {'disable_artifact': False, 'enable': False, 'entity': None, 'mode': None, 'notes': None, 'project': 'lerobot', 'run_id': None}}
+May 21  14:59:00.600
+INFO 2026-05-21 19:59:00 ot_train.py:205 Logs will be saved locally.
+May 21  14:59:00.605
+INFO 2026-05-21 19:59:00 ot_train.py:221 Creating dataset
+May 21  14:59:00.735
+INFO 2026-05-21 19:59:00 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/refs "HTTP/1.1 200 OK"
+May 21  14:59:00.833
+INFO 2026-05-21 19:59:00 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/revision/v3.0 "HTTP/1.1 200 OK"
+May 21  14:59:00.941
+Fetching 4 files: 0%| | 0/4 [00:00<?, ?it/s]INFO 2026-05-21 19:59:00 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/meta/info.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:00.958
+INFO 2026-05-21 19:59:00 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/meta%2Finfo.json "HTTP/1.1 200 OK"
+May 21  14:59:00.977
+INFO 2026-05-21 19:59:00 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/meta%2Finfo.json "HTTP/1.1 200 OK"
+May 21  14:59:01.067
+INFO 2026-05-21 19:59:01 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/meta/stats.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:01.069
+INFO 2026-05-21 19:59:01 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/meta/episodes/chunk-000/file-000.parquet "HTTP/1.1 302 Found"
+May 21  14:59:01.101
+INFO 2026-05-21 19:59:01 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/meta%2Fstats.json "HTTP/1.1 200 OK"
+May 21  14:59:01.119
+INFO 2026-05-21 19:59:01 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/meta%2Fstats.json "HTTP/1.1 200 OK"
+May 21  14:59:01.145
+INFO 2026-05-21 19:59:01 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/meta/tasks.parquet "HTTP/1.1 302 Found"
+May 21  14:59:01.181
+INFO 2026-05-21 19:59:01 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/xet-read-token/6e50429f4077315f92c53bbee730aed745b8f88d "HTTP/1.1 200 OK"
+May 21  14:59:01.246
+INFO 2026-05-21 19:59:01 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/xet-read-token/6e50429f4077315f92c53bbee730aed745b8f88d "HTTP/1.1 200 OK"
+May 21  14:59:01.857
+Fetching 4 files: 100%|██████████| 4/4 [00:01<00:00, 3.93it/s]
+May 21  14:59:02.106
+INFO 2026-05-21 19:59:02 eo_utils.py:106 Using video codec: libsvtav1
+May 21  14:59:02.374
+INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/refs "HTTP/1.1 200 OK"
+May 21  14:59:02.472
+INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: GET https://huggingface.co/api/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/revision/v3.0 "HTTP/1.1 200 OK"
+May 21  14:59:02.586
+Fetching 50 files: 0%| | 0/50 [00:00<?, ?it/s]INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/README.md "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:02.588
+INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-000.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:02.588
+INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/data/chunk-000/file-000.parquet "HTTP/1.1 302 Found"
+May 21  14:59:02.593
+INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/.gitattributes "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:02.608
+INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/README.md "HTTP/1.1 200 OK"
+May 21  14:59:02.609
+INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/.gitattributes "HTTP/1.1 200 OK"
+May 21  14:59:02.617
+INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-004.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:02.621
+INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-003.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:02.625
+INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-001.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:02.626
+INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-002.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:02.630
+INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/README.md "HTTP/1.1 200 OK"
+May 21  14:59:02.631
+INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/6e50429f4077315f92c53bbee730aed745b8f88d/.gitattributes "HTTP/1.1 200 OK"
+May 21  14:59:02.752
+Fetching 50 files: 2%|▏ | 1/50 [00:00<00:07, 6.32it/s]INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-005.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:02.855
+INFO 2026-05-21 19:59:02 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-006.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:03.063
+Fetching 50 files: 6%|▌ | 3/50 [00:00<00:06, 7.29it/s]INFO 2026-05-21 19:59:03 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-007.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:06.135
+INFO 2026-05-21 19:59:06 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-008.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:06.283
+Fetching 50 files: 16%|█▌ | 8/50 [00:03<00:21, 1.96it/s]INFO 2026-05-21 19:59:06 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-009.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:06.424
+Fetching 50 files: 18%|█▊ | 9/50 [00:03<00:18, 2.23it/s]INFO 2026-05-21 19:59:06 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-010.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:06.807
+Fetching 50 files: 20%|██ | 10/50 [00:04<00:17, 2.24it/s]INFO 2026-05-21 19:59:06 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-012.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:06.880
+INFO 2026-05-21 19:59:06 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-011.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:06.882
+INFO 2026-05-21 19:59:06 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-013.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:07.219
+Fetching 50 files: 24%|██▍ | 12/50 [00:04<00:12, 2.92it/s]INFO 2026-05-21 19:59:07 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-014.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:07.488
+Fetching 50 files: 30%|███ | 15/50 [00:04<00:08, 4.22it/s]INFO 2026-05-21 19:59:07 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-015.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:08.558
+Fetching 50 files: 32%|███▏ | 16/50 [00:05<00:12, 2.63it/s]INFO 2026-05-21 19:59:08 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-016.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:10.260
+Fetching 50 files: 34%|███▍ | 17/50 [00:07<00:20, 1.59it/s]INFO 2026-05-21 19:59:10 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-017.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:10.697
+INFO 2026-05-21 19:59:10 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-018.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:11.041
+INFO 2026-05-21 19:59:11 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-019.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:11.241
+Fetching 50 files: 36%|███▌ | 18/50 [00:08<00:23, 1.39it/s]INFO 2026-05-21 19:59:11 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-020.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:11.243
+INFO 2026-05-21 19:59:11 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-021.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:11.444
+Fetching 50 files: 40%|████ | 20/50 [00:08<00:14, 2.08it/s]INFO 2026-05-21 19:59:11 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-022.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:11.773
+INFO 2026-05-21 19:59:11 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-023.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:12.011
+Fetching 50 files: 42%|████▏ | 21/50 [00:09<00:14, 1.99it/s]INFO 2026-05-21 19:59:12 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-024.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:12.311
+Fetching 50 files: 50%|█████ | 25/50 [00:09<00:06, 3.76it/s]INFO 2026-05-21 19:59:12 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-025.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:13.128
+Fetching 50 files: 52%|█████▏ | 26/50 [00:10<00:08, 2.81it/s]INFO 2026-05-21 19:59:13 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-026.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:13.810
+INFO 2026-05-21 19:59:13 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-027.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:14.017
+INFO 2026-05-21 19:59:14 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-028.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:14.435
+INFO 2026-05-21 19:59:14 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-029.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:14.591
+INFO 2026-05-21 19:59:14 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-030.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:14.728
+INFO 2026-05-21 19:59:14 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.realsense/chunk-000/file-031.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:14.807
+INFO 2026-05-21 19:59:14 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-000.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:14.993
+Fetching 50 files: 54%|█████▍ | 27/50 [00:12<00:14, 1.55it/s]INFO 2026-05-21 19:59:14 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-001.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:15.574
+Fetching 50 files: 68%|██████▊ | 34/50 [00:12<00:03, 4.18it/s]INFO 2026-05-21 19:59:15 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-002.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:15.756
+INFO 2026-05-21 19:59:15 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-003.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:17.215
+Fetching 50 files: 72%|███████▏ | 36/50 [00:14<00:05, 2.53it/s]INFO 2026-05-21 19:59:17 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-004.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:17.880
+INFO 2026-05-21 19:59:17 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-005.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:18.284
+INFO 2026-05-21 19:59:18 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-006.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:18.285
+INFO 2026-05-21 19:59:18 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-007.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:18.541
+INFO 2026-05-21 19:59:18 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-008.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:18.666
+INFO 2026-05-21 19:59:18 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-009.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:18.815
+INFO 2026-05-21 19:59:18 _client.py:1025 HTTP Request: HEAD https://huggingface.co/datasets/CarlosMunoz0/vla-mujoco-so101-merged-v1/resolve/6e50429f4077315f92c53bbee730aed745b8f88d/videos/observation.images.wrist_cam/chunk-000/file-010.mp4 "HTTP/1.1 302 Found"
+May 21  14:59:22.399
+Fetching 50 files: 100%|██████████| 50/50 [00:19<00:00, 2.51it/s]
+May 21  14:59:22.543
+INFO 2026-05-21 19:59:22 ot_train.py:239 Creating policy
+May 21  14:59:22.559
+Loading HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+May 21  14:59:22.662
+INFO 2026-05-21 19:59:22 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:22.681
+INFO 2026-05-21 19:59:22 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/config.json "HTTP/1.1 200 OK"
+May 21  14:59:22.699
+INFO 2026-05-21 19:59:22 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/config.json "HTTP/1.1 200 OK"
+May 21  14:59:22.701
+`torch_dtype` is deprecated! Use `dtype` instead!
+May 21  14:59:22.824
+INFO 2026-05-21 19:59:22 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+May 21  14:59:22.920
+INFO 2026-05-21 19:59:22 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/xet-read-token/7b375e1b73b11138ff12fe22c8f2822d8fe03467 "HTTP/1.1 200 OK"
+May 21  14:59:28.965
+Loading weights: 100%|██████████| 489/489 [00:01<00:00, 383.79it/s]
+May 21  14:59:29.093
+INFO 2026-05-21 19:59:29 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:29.180
+INFO 2026-05-21 19:59:29 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/generation_config.json "HTTP/1.1 200 OK"
+May 21  14:59:29.257
+INFO 2026-05-21 19:59:29 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/generation_config.json "HTTP/1.1 200 OK"
+May 21  14:59:29.356
+INFO 2026-05-21 19:59:29 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:29.443
+INFO 2026-05-21 19:59:29 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  14:59:29.528
+INFO 2026-05-21 19:59:29 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  14:59:29.625
+INFO 2026-05-21 19:59:29 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+May 21  14:59:29.727
+INFO 2026-05-21 19:59:29 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:29.740
+INFO 2026-05-21 19:59:29 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  14:59:29.845
+INFO 2026-05-21 19:59:29 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/chat_template.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:29.932
+INFO 2026-05-21 19:59:29 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/chat_template.json "HTTP/1.1 200 OK"
+May 21  14:59:30.013
+INFO 2026-05-21 19:59:30 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/chat_template.json "HTTP/1.1 200 OK"
+May 21  14:59:30.109
+INFO 2026-05-21 19:59:30 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+May 21  14:59:30.212
+INFO 2026-05-21 19:59:30 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/audio_tokenizer_config.json "HTTP/1.1 404 Not Found"
+May 21  14:59:30.369
+INFO 2026-05-21 19:59:30 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+May 21  14:59:30.466
+INFO 2026-05-21 19:59:30 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:30.478
+INFO 2026-05-21 19:59:30 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  14:59:30.585
+INFO 2026-05-21 19:59:30 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/chat_template.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:30.598
+INFO 2026-05-21 19:59:30 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/chat_template.json "HTTP/1.1 200 OK"
+May 21  14:59:30.701
+INFO 2026-05-21 19:59:30 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+May 21  14:59:30.796
+INFO 2026-05-21 19:59:30 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/audio_tokenizer_config.json "HTTP/1.1 404 Not Found"
+May 21  14:59:30.909
+INFO 2026-05-21 19:59:30 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:30.920
+INFO 2026-05-21 19:59:30 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  14:59:31.017
+INFO 2026-05-21 19:59:31 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:31.100
+INFO 2026-05-21 19:59:31 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/preprocessor_config.json "HTTP/1.1 200 OK"
+May 21  14:59:31.190
+INFO 2026-05-21 19:59:31 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/preprocessor_config.json "HTTP/1.1 200 OK"
+May 21  14:59:31.290
+INFO 2026-05-21 19:59:31 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:31.302
+INFO 2026-05-21 19:59:31 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  14:59:31.401
+INFO 2026-05-21 19:59:31 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:31.412
+INFO 2026-05-21 19:59:31 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/preprocessor_config.json "HTTP/1.1 200 OK"
+May 21  14:59:31.507
+INFO 2026-05-21 19:59:31 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:31.518
+INFO 2026-05-21 19:59:31 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/config.json "HTTP/1.1 200 OK"
+May 21  14:59:31.613
+INFO 2026-05-21 19:59:31 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:31.632
+INFO 2026-05-21 19:59:31 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/tokenizer_config.json "HTTP/1.1 200 OK"
+May 21  14:59:31.715
+INFO 2026-05-21 19:59:31 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/tokenizer_config.json "HTTP/1.1 200 OK"
+May 21  14:59:31.829
+INFO 2026-05-21 19:59:31 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+May 21  14:59:31.943
+INFO 2026-05-21 19:59:31 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+May 21  14:59:32.040
+INFO 2026-05-21 19:59:32 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/vocab.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:32.132
+INFO 2026-05-21 19:59:32 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/vocab.json "HTTP/1.1 200 OK"
+May 21  14:59:32.216
+INFO 2026-05-21 19:59:32 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/vocab.json "HTTP/1.1 200 OK"
+May 21  14:59:32.323
+INFO 2026-05-21 19:59:32 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/merges.txt "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:32.406
+INFO 2026-05-21 19:59:32 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/merges.txt "HTTP/1.1 200 OK"
+May 21  14:59:32.484
+INFO 2026-05-21 19:59:32 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/merges.txt "HTTP/1.1 200 OK"
+May 21  14:59:32.597
+INFO 2026-05-21 19:59:32 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/added_tokens.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:32.680
+INFO 2026-05-21 19:59:32 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/added_tokens.json "HTTP/1.1 200 OK"
+May 21  14:59:32.765
+INFO 2026-05-21 19:59:32 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/added_tokens.json "HTTP/1.1 200 OK"
+May 21  14:59:32.871
+INFO 2026-05-21 19:59:32 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/special_tokens_map.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:32.969
+INFO 2026-05-21 19:59:32 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/special_tokens_map.json "HTTP/1.1 200 OK"
+May 21  14:59:33.052
+INFO 2026-05-21 19:59:33 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/special_tokens_map.json "HTTP/1.1 200 OK"
+May 21  14:59:33.150
+INFO 2026-05-21 19:59:33 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/tokenizer.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:33.238
+INFO 2026-05-21 19:59:33 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/tokenizer.json "HTTP/1.1 200 OK"
+May 21  14:59:33.322
+INFO 2026-05-21 19:59:33 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/tokenizer.json "HTTP/1.1 200 OK"
+May 21  14:59:33.688
+INFO 2026-05-21 19:59:33 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:33.698
+INFO 2026-05-21 19:59:33 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  14:59:33.797
+INFO 2026-05-21 19:59:33 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+May 21  14:59:33.894
+INFO 2026-05-21 19:59:33 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:33.906
+INFO 2026-05-21 19:59:33 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/preprocessor_config.json "HTTP/1.1 200 OK"
+May 21  14:59:34.005
+INFO 2026-05-21 19:59:34 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:34.015
+INFO 2026-05-21 19:59:34 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/processor_config.json "HTTP/1.1 200 OK"
+May 21  14:59:34.117
+INFO 2026-05-21 19:59:34 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+May 21  14:59:34.222
+INFO 2026-05-21 19:59:34 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:34.235
+INFO 2026-05-21 19:59:34 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/preprocessor_config.json "HTTP/1.1 200 OK"
+May 21  14:59:34.464
+Reducing the number of VLM layers to 16 ...
+May 21  14:59:39.809
+INFO 2026-05-21 19:59:39 _client.py:1025 HTTP Request: HEAD https://huggingface.co/lerobot/smolvla_base/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+May 21  14:59:39.924
+INFO 2026-05-21 19:59:39 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/lerobot/smolvla_base/xet-read-token/c83c3163b8ca9b7e67c509fffd9121e66cb96205 "HTTP/1.1 200 OK"
+May 21  14:59:45.610
+INFO 2026-05-21 19:59:45 _client.py:1025 HTTP Request: HEAD https://huggingface.co/lerobot/smolvla_base/resolve/main/policy_preprocessor.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:45.641
+INFO 2026-05-21 19:59:45 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/lerobot/smolvla_base/c83c3163b8ca9b7e67c509fffd9121e66cb96205/policy_preprocessor.json "HTTP/1.1 200 OK"
+May 21  14:59:45.660
+INFO 2026-05-21 19:59:45 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/lerobot/smolvla_base/c83c3163b8ca9b7e67c509fffd9121e66cb96205/policy_preprocessor.json "HTTP/1.1 200 OK"
+May 21  14:59:45.767
+INFO 2026-05-21 19:59:45 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:45.777
+INFO 2026-05-21 19:59:45 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/config.json "HTTP/1.1 200 OK"
+May 21  14:59:45.876
+INFO 2026-05-21 19:59:45 _client.py:1025 HTTP Request: HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:45.888
+INFO 2026-05-21 19:59:45 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/7b375e1b73b11138ff12fe22c8f2822d8fe03467/tokenizer_config.json "HTTP/1.1 200 OK"
+May 21  14:59:45.993
+INFO 2026-05-21 19:59:45 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+May 21  14:59:46.098
+INFO 2026-05-21 19:59:46 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+May 21  14:59:46.638
+INFO 2026-05-21 19:59:46 _client.py:1025 HTTP Request: HEAD https://huggingface.co/lerobot/smolvla_base/resolve/main/policy_preprocessor_step_5_normalizer_processor.safetensors "HTTP/1.1 302 Found"
+May 21  14:59:46.889
+INFO 2026-05-21 19:59:46 _client.py:1025 HTTP Request: HEAD https://huggingface.co/lerobot/smolvla_base/resolve/main/policy_postprocessor.json "HTTP/1.1 307 Temporary Redirect"
+May 21  14:59:46.907
+INFO 2026-05-21 19:59:46 _client.py:1025 HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/lerobot/smolvla_base/c83c3163b8ca9b7e67c509fffd9121e66cb96205/policy_postprocessor.json "HTTP/1.1 200 OK"
+May 21  14:59:46.925
+INFO 2026-05-21 19:59:46 _client.py:1025 HTTP Request: GET https://huggingface.co/api/resolve-cache/models/lerobot/smolvla_base/c83c3163b8ca9b7e67c509fffd9121e66cb96205/policy_postprocessor.json "HTTP/1.1 200 OK"
+May 21  14:59:47.034
+INFO 2026-05-21 19:59:47 _client.py:1025 HTTP Request: HEAD https://huggingface.co/lerobot/smolvla_base/resolve/main/policy_postprocessor_step_0_unnormalizer_processor.safetensors "HTTP/1.1 302 Found"
+May 21  14:59:47.038
+INFO 2026-05-21 19:59:47 ot_train.py:294 Creating optimizer and scheduler
+May 21  14:59:47.040
+INFO 2026-05-21 19:59:47 hedulers.py:105 Auto-scaling LR scheduler: num_training_steps (20000) < num_decay_steps (30000). Scaling warmup: 1000 → 666, decay: 30000 → 20000 (scale factor: 0.667)
+May 21  14:59:47.043
+INFO 2026-05-21 19:59:47 ot_train.py:329 Output dir: /outputs/train/smolvla_merged_20000step_bs16_ep305
+May 21  14:59:47.043
+INFO 2026-05-21 19:59:47 ot_train.py:336 cfg.steps=20000 (20K)
+May 21  14:59:47.043
+INFO 2026-05-21 19:59:47 ot_train.py:337 dataset.num_frames=297016 (297K)
+May 21  14:59:47.043
+INFO 2026-05-21 19:59:47 ot_train.py:338 dataset.num_episodes=305
+May 21  14:59:47.043
+INFO 2026-05-21 19:59:47 ot_train.py:341 Effective batch size: 16 x 1 = 16
+May 21  14:59:47.043
+INFO 2026-05-21 19:59:47 ot_train.py:342 num_learnable_params=99880992 (100M)
+May 21  14:59:47.043
+INFO 2026-05-21 19:59:47 ot_train.py:343 num_total_params=450046176 (450M)
+May 21  14:59:47.057
+Training: 0%| | 0/20000 [00:00<?, ?step/s]INFO 2026-05-21 19:59:47 ot_train.py:407 Start offline training on a fixed dataset, with effective batch size: 16
+May 21  14:59:59.748
+Training: 0%| | 41/20000 [00:12<1:04:05, 5.19step/s]
+May 21  14:59:59.945
+Training: 0%| | 42/20000 [00:12<1:04:28, 5.16step/s]
+May 21  15:00:15.794
+Training: 1%| | 125/20000 [00:28<1:03:13, 5.24step/s]
+May 21  15:00:30.301
+Training: 1%| | 200/20000 [00:43<1:04:23, 5.12step/s]INFO 2026-05-21 20:00:30 ot_train.py:439 step:200 smpl:3K ep:3 epch:0.01 loss:0.049 grdn:0.884 lr:1.5e-05 updt_s:0.187 data_s:0.027
+May 21  15:00:35.433
+Training: 1%| | 227/20000 [00:48<1:01:55, 5.32step/s]
+May 21  15:00:54.919
+Training: 2%|▏ | 329/20000 [01:07<1:02:14, 5.27step/s]
+May 21  15:00:59.101
+Training: 2%|▏ | 351/20000 [01:12<1:01:42, 5.31step/s]
+May 21  15:01:08.450
+Training: 2%|▏ | 400/20000 [01:21<1:02:25, 5.23step/s]INFO 2026-05-21 20:01:08 ot_train.py:439 step:400 smpl:6K ep:7 epch:0.02 loss:0.026 grdn:0.644 lr:4.5e-05 updt_s:0.174 data_s:0.015
+May 21  15:01:13.029
+Training: 2%|▏ | 424/20000 [01:25<1:01:58, 5.26step/s]
+May 21  15:01:32.543
+Training: 3%|▎ | 526/20000 [01:45<1:03:39, 5.10step/s]
+May 21  15:01:46.656
+Training: 3%|▎ | 600/20000 [01:59<1:01:42, 5.24step/s]INFO 2026-05-21 20:01:46 ot_train.py:439 step:600 smpl:10K ep:10 epch:0.03 loss:0.030 grdn:0.710 lr:7.5e-05 updt_s:0.175 data_s:0.015
+May 21  15:01:51.980
+Training: 3%|▎ | 628/20000 [02:04<1:01:10, 5.28step/s]
+May 21  15:02:11.415
+Training: 4%|▎ | 730/20000 [02:24<1:02:42, 5.12step/s]
+May 21  15:02:15.030
+Training: 4%|▎ | 749/20000 [02:27<1:01:38, 5.21step/s]
+May 21  15:02:24.756
+Training: 4%|▍ | 800/20000 [02:37<1:01:18, 5.22step/s]INFO 2026-05-21 20:02:24 ot_train.py:439 step:800 smpl:13K ep:13 epch:0.04 loss:0.037 grdn:0.784 lr:9.8e-05 updt_s:0.174 data_s:0.014
+May 21  15:02:27.044
+Training: 4%|▍ | 812/20000 [02:39<1:00:35, 5.28step/s]
+May 21  15:02:46.479
+Training: 5%|▍ | 914/20000 [02:59<1:01:00, 5.21step/s]
+May 21  15:03:02.994
+Training: 5%|▌ | 1000/20000 [03:15<1:00:58, 5.19step/s]INFO 2026-05-21 20:03:02 ot_train.py:439 step:1K smpl:16K ep:16 epch:0.05 loss:0.034 grdn:0.705 lr:1.0e-04 updt_s:0.175 data_s:0.014
+May 21  15:03:06.029
+Training: 5%|▌ | 1016/20000 [03:18<59:26, 5.32step/s]
+May 21  15:03:25.524
+Training: 6%|▌ | 1118/20000 [03:38<1:00:05, 5.24step/s]
+May 21  15:03:31.035
+Training: 6%|▌ | 1147/20000 [03:43<59:01, 5.32step/s]
+May 21  15:03:41.156
+Training: 6%|▌ | 1200/20000 [03:54<59:59, 5.22step/s]
+May 21  15:03:41.157
+INFO 2026-05-21 20:03:41 ot_train.py:439 step:1K smpl:19K ep:20 epch:0.06 loss:0.031 grdn:0.640 lr:9.9e-05 updt_s:0.174 data_s:0.014
+May 21  15:04:00.774
+Training: 7%|▋ | 1302/20000 [04:13<1:00:03, 5.19step/s]
+May 21  15:04:19.554
+Training: 7%|▋ | 1400/20000 [04:32<59:46, 5.19step/s]INFO 2026-05-21 20:04:19 ot_train.py:439 step:1K smpl:22K ep:23 epch:0.08 loss:0.031 grdn:0.606 lr:9.9e-05 updt_s:0.175 data_s:0.015
+May 21  15:04:20.323
+Training: 7%|▋ | 1404/20000 [04:33<59:28, 5.21step/s]
+May 21  15:04:39.756
+Training: 8%|▊ | 1506/20000 [04:52<59:16, 5.20step/s]
+May 21  15:04:47.182
+Training: 8%|▊ | 1545/20000 [05:00<58:46, 5.23step/s]
+May 21  15:04:55.366
+Training: 8%|▊ | 1588/20000 [05:08<58:11, 5.27step/s]
+May 21  15:04:57.687
+Training: 8%|▊ | 1600/20000 [05:10<59:04, 5.19step/s]INFO 2026-05-21 20:04:57 ot_train.py:439 step:2K smpl:26K ep:26 epch:0.09 loss:0.031 grdn:0.594 lr:9.9e-05 updt_s:0.174 data_s:0.014
+May 21  15:05:14.835
+Training: 8%|▊ | 1690/20000 [05:27<58:32, 5.21step/s]
+May 21  15:05:34.264
+Training: 9%|▉ | 1792/20000 [05:47<57:29, 5.28step/s]
+May 21  15:05:35.801
+Training: 9%|▉ | 1800/20000 [05:48<57:50, 5.24step/s]INFO 2026-05-21 20:05:35 ot_train.py:439 step:2K smpl:29K ep:30 epch:0.10 loss:0.025 grdn:0.525 lr:9.8e-05 updt_s:0.174 data_s:0.015
+May 21  15:05:53.736
+Training: 9%|▉ | 1894/20000 [06:06<58:42, 5.14step/s]
+May 21  15:06:03.044
+Training: 10%|▉ | 1943/20000 [06:15<56:46, 5.30step/s]
+May 21  15:06:09.330
+Training: 10%|▉ | 1976/20000 [06:22<56:55, 5.28step/s]
+May 21  15:06:13.913
+Training: 10%|█ | 2000/20000 [06:26<57:21, 5.23step/s]INFO 2026-05-21 20:06:13 ot_train.py:439 step:2K smpl:32K ep:33 epch:0.11 loss:0.026 grdn:0.490 lr:9.8e-05 updt_s:0.174 data_s:0.014
+May 21  15:06:28.816
+Training: 10%|█ | 2078/20000 [06:41<57:22, 5.21step/s]
+May 21  15:06:48.270
+Training: 11%|█ | 2180/20000 [07:01<57:36, 5.16step/s]
+May 21  15:06:52.080
+Training: 11%|█ | 2200/20000 [07:05<56:33, 5.25step/s]INFO 2026-05-21 20:06:52 ot_train.py:439 step:2K smpl:35K ep:36 epch:0.12 loss:0.024 grdn:0.477 lr:9.7e-05 updt_s:0.174 data_s:0.015
+May 21  15:07:07.752
+Training: 11%|█▏ | 2282/20000 [07:20<56:17, 5.25step/s]
+May 21  15:07:19.295
+Training: 12%|█▏ | 2341/20000 [07:32<56:30, 5.21step/s]
+May 21  15:07:23.812
+Training: 12%|█▏ | 2364/20000 [07:36<59:01, 4.98step/s]
+May 21  15:07:30.851
+Training: 12%|█▏ | 2400/20000 [07:43<57:11, 5.13step/s]INFO 2026-05-21 20:07:30 ot_train.py:439 step:2K smpl:38K ep:39 epch:0.13 loss:0.023 grdn:0.471 lr:9.7e-05 updt_s:0.177 data_s:0.015
+May 21  15:07:44.044
+Training: 12%|█▏ | 2466/20000 [07:56<56:34, 5.17step/s]
+May 21  15:08:04.069
+Training: 13%|█▎ | 2568/20000 [08:17<56:59, 5.10step/s]
+May 21  15:08:10.437
+Training: 13%|█▎ | 2600/20000 [08:23<1:03:30, 4.57step/s]INFO 2026-05-21 20:08:10 ot_train.py:439 step:3K smpl:42K ep:43 epch:0.14 loss:0.023 grdn:0.465 lr:9.6e-05 updt_s:0.181 data_s:0.015
+May 21  15:08:24.286
+Training: 13%|█▎ | 2670/20000 [08:37<55:17, 5.22step/s]
+May 21  15:08:37.755
+Training: 14%|█▎ | 2739/20000 [08:50<54:15, 5.30step/s]
+May 21  15:08:40.243
+Training: 14%|█▍ | 2752/20000 [08:53<54:29, 5.28step/s]
+May 21  15:08:49.638
+Training: 14%|█▍ | 2800/20000 [09:02<57:40, 4.97step/s]INFO 2026-05-21 20:08:49 ot_train.py:439 step:3K smpl:45K ep:46 epch:0.15 loss:0.022 grdn:0.442 lr:9.6e-05 updt_s:0.179 data_s:0.015
+May 21  15:09:00.015
+Training: 14%|█▍ | 2854/20000 [09:12<56:42, 5.04step/s]
+May 21  15:09:19.667
+Training: 15%|█▍ | 2956/20000 [09:32<55:35, 5.11step/s]
+May 21  15:09:29.791
+Training: 15%|█▌ | 3000/20000 [09:42<1:46:07, 2.67step/s]INFO 2026-05-21 20:09:29 ot_train.py:439 step:3K smpl:48K ep:49 epch:0.16 loss:0.023 grdn:0.451 lr:9.5e-05 updt_s:0.180 data_s:0.019
+May 21  15:09:43.885
+Training: 15%|█▌ | 3058/20000 [09:56<1:03:11, 4.47step/s]
+May 21  15:09:59.590
+Training: 16%|█▌ | 3137/20000 [10:12<54:26, 5.16step/s]
+May 21  15:10:00.178
+Training: 16%|█▌ | 3140/20000 [10:13<54:58, 5.11step/s]
+May 21  15:10:11.775
+Training: 16%|█▌ | 3200/20000 [10:24<54:48, 5.11step/s]INFO 2026-05-21 20:10:11 ot_train.py:439 step:3K smpl:51K ep:53 epch:0.17 loss:0.022 grdn:0.431 lr:9.4e-05 updt_s:0.186 data_s:0.022
+May 21  15:10:19.919
+Training: 16%|█▌ | 3242/20000 [10:32<53:49, 5.19step/s]
+May 21  15:10:39.826
+Training: 17%|█▋ | 3344/20000 [10:52<54:24, 5.10step/s]
+May 21  15:10:50.587
+Training: 17%|█▋ | 3400/20000 [11:03<53:52, 5.13step/s]INFO 2026-05-21 20:10:50 ot_train.py:439 step:3K smpl:54K ep:56 epch:0.18 loss:0.022 grdn:0.459 lr:9.4e-05 updt_s:0.177 data_s:0.015
+May 21  15:10:59.467
+Training: 17%|█▋ | 3446/20000 [11:12<53:33, 5.15step/s]
+May 21  15:11:16.835
+Training: 18%|█▊ | 3535/20000 [11:29<53:36, 5.12step/s]
+May 21  15:11:29.649
+Training: 18%|█▊ | 3600/20000 [11:42<53:12, 5.14step/s]INFO 2026-05-21 20:11:29 ot_train.py:439 step:4K smpl:58K ep:59 epch:0.19 loss:0.021 grdn:0.415 lr:9.3e-05 updt_s:0.178 data_s:0.015
+May 21  15:11:35.385
+Training: 18%|█▊ | 3630/20000 [11:48<52:14, 5.22step/s]
+May 21  15:11:55.442
+Training: 19%|█▊ | 3732/20000 [12:08<52:18, 5.18step/s]
+May 21  15:12:08.908
+Training: 19%|█▉ | 3800/20000 [12:21<1:00:00, 4.50step/s]INFO 2026-05-21 20:12:08 ot_train.py:439 step:4K smpl:61K ep:62 epch:0.20 loss:0.022 grdn:0.428 lr:9.2e-05 updt_s:0.179 data_s:0.015
+May 21  15:12:16.181
+Training: 19%|█▉ | 3834/20000 [12:29<55:20, 4.87step/s]
+May 21  15:12:35.674
+Training: 20%|█▉ | 3933/20000 [12:48<51:32, 5.20step/s]
+May 21  15:12:48.660
+Training: 20%|██ | 4000/20000 [13:01<51:04, 5.22step/s]INFO 2026-05-21 20:12:48 ot_train.py:439 step:4K smpl:64K ep:66 epch:0.22 loss:0.019 grdn:0.399 lr:9.1e-05 updt_s:0.181 data_s:0.016
+May 21  15:12:52.128
+Training: 20%|██ | 4018/20000 [13:05<52:12, 5.10step/s]
+May 21  15:13:11.777
+Training: 21%|██ | 4120/20000 [13:24<50:00, 5.29step/s]
+May 21  15:13:27.659
+Training: 21%|██ | 4200/20000 [13:40<52:23, 5.03step/s]INFO 2026-05-21 20:13:27 ot_train.py:439 step:4K smpl:67K ep:69 epch:0.23 loss:0.019 grdn:0.372 lr:9.0e-05 updt_s:0.178 data_s:0.015
+May 21  15:13:31.902
+Training: 21%|██ | 4222/20000 [13:44<50:52, 5.17step/s]
+May 21  15:13:51.564
+Training: 22%|██▏ | 4324/20000 [14:04<50:19, 5.19step/s]
+May 21  15:13:52.938
+Training: 22%|██▏ | 4331/20000 [14:05<50:51, 5.14step/s]
+May 21  15:14:06.396
+Training: 22%|██▏ | 4400/20000 [14:19<50:48, 5.12step/s]INFO 2026-05-21 20:14:06 ot_train.py:439 step:4K smpl:70K ep:72 epch:0.24 loss:0.019 grdn:0.376 lr:8.9e-05 updt_s:0.177 data_s:0.015
+May 21  15:14:07.577
+Training: 22%|██▏ | 4406/20000 [14:20<51:26, 5.05step/s]
+May 21  15:14:27.564
+Training: 23%|██▎ | 4508/20000 [14:40<51:03, 5.06step/s]
+May 21  15:14:45.993
+Training: 23%|██▎ | 4600/20000 [14:58<54:03, 4.75step/s]INFO 2026-05-21 20:14:45 ot_train.py:439 step:5K smpl:74K ep:76 epch:0.25 loss:0.018 grdn:0.374 lr:8.8e-05 updt_s:0.181 data_s:0.015
+May 21  15:14:48.023
+Training: 23%|██▎ | 4610/20000 [15:00<52:10, 4.92step/s]
+May 21  15:15:08.376
+Training: 24%|██▎ | 4712/20000 [15:21<48:46, 5.22step/s]
+May 21  15:15:11.622
+Training: 24%|██▎ | 4729/20000 [15:24<48:07, 5.29step/s]
+May 21  15:15:24.286
+Training: 24%|██▍ | 4794/20000 [15:37<53:40, 4.72step/s]
+May 21  15:15:25.486
+Training: 24%|██▍ | 4800/20000 [15:38<49:30, 5.12step/s]INFO 2026-05-21 20:15:25 ot_train.py:439 step:5K smpl:77K ep:79 epch:0.26 loss:0.018 grdn:0.374 lr:8.7e-05 updt_s:0.180 data_s:0.015
+May 21  15:15:43.855
+Training: 24%|██▍ | 4896/20000 [15:56<46:44, 5.39step/s]
+May 21  15:16:03.585
+Training: 25%|██▍ | 4998/20000 [16:16<48:36, 5.14step/s]
+May 21  15:16:03.971
+Training: 25%|██▌ | 5000/20000 [16:16<48:29, 5.16step/s]INFO 2026-05-21 20:16:03 ot_train.py:439 step:5K smpl:80K ep:82 epch:0.27 loss:0.019 grdn:0.367 lr:8.6e-05 updt_s:0.175 data_s:0.015
+May 21  15:16:23.327
+Training: 26%|██▌ | 5100/20000 [16:36<47:45, 5.20step/s]
+May 21  15:16:28.575
+Training: 26%|██▌ | 5127/20000 [16:41<47:53, 5.18step/s]
+May 21  15:16:39.156
+Training: 26%|██▌ | 5182/20000 [16:52<47:38, 5.18step/s]
+May 21  15:16:42.612
+Training: 26%|██▌ | 5200/20000 [16:55<47:10, 5.23step/s]INFO 2026-05-21 20:16:42 ot_train.py:439 step:5K smpl:83K ep:85 epch:0.28 loss:0.018 grdn:0.364 lr:8.5e-05 updt_s:0.176 data_s:0.015
+May 21  15:16:58.840
+Training: 26%|██▋ | 5284/20000 [17:11<47:41, 5.14step/s]
+May 21  15:17:18.537
+Training: 27%|██▋ | 5386/20000 [17:31<46:59, 5.18step/s]
+May 21  15:17:21.216
+Training: 27%|██▋ | 5400/20000 [17:34<47:01, 5.17step/s]INFO 2026-05-21 20:17:21 ot_train.py:439 step:5K smpl:86K ep:89 epch:0.29 loss:0.017 grdn:0.346 lr:8.4e-05 updt_s:0.176 data_s:0.015
+May 21  15:17:38.373
+Training: 27%|██▋ | 5488/20000 [17:51<46:40, 5.18step/s]
+May 21  15:17:45.599
+Training: 28%|██▊ | 5525/20000 [17:58<45:41, 5.28step/s]
+May 21  15:17:54.321
+Training: 28%|██▊ | 5570/20000 [18:07<47:24, 5.07step/s]
+May 21  15:18:00.100
+Training: 28%|██▊ | 5600/20000 [18:13<46:29, 5.16step/s]INFO 2026-05-21 20:18:00 ot_train.py:439 step:6K smpl:90K ep:92 epch:0.30 loss:0.017 grdn:0.362 lr:8.3e-05 updt_s:0.177 data_s:0.015
+May 21  15:18:14.039
+Training: 28%|██▊ | 5672/20000 [18:26<46:42, 5.11step/s]
+May 21  15:18:33.731
+Training: 29%|██▉ | 5774/20000 [18:46<45:57, 5.16step/s]
+May 21  15:18:38.756
+Training: 29%|██▉ | 5800/20000 [18:51<46:18, 5.11step/s]INFO 2026-05-21 20:18:38 ot_train.py:439 step:6K smpl:93K ep:95 epch:0.31 loss:0.016 grdn:0.341 lr:8.2e-05 updt_s:0.176 data_s:0.015
+May 21  15:18:53.539
+Training: 29%|██▉ | 5876/20000 [19:06<45:35, 5.16step/s]
+May 21  15:19:02.607
+Training: 30%|██▉ | 5923/20000 [19:15<44:48, 5.24step/s]
+May 21  15:19:09.320
+Training: 30%|██▉ | 5958/20000 [19:22<44:47, 5.22step/s]
+May 21  15:19:17.341
+Training: 30%|███ | 6000/20000 [19:30<44:27, 5.25step/s]INFO 2026-05-21 20:19:17 ot_train.py:439 step:6K smpl:96K ep:99 epch:0.32 loss:0.016 grdn:0.330 lr:8.1e-05 updt_s:0.176 data_s:0.015
+May 21  15:19:28.812
+Training: 30%|███ | 6060/20000 [19:41<44:03, 5.27step/s]
+May 21  15:19:48.282
+Training: 31%|███ | 6162/20000 [20:01<43:58, 5.25step/s]
+May 21  15:19:55.544
+Training: 31%|███ | 6200/20000 [20:08<44:09, 5.21step/s]INFO 2026-05-21 20:19:55 ot_train.py:439 step:6K smpl:99K ep:102 epch:0.33 loss:0.015 grdn:0.326 lr:7.9e-05 updt_s:0.174 data_s:0.015
+May 21  15:20:07.752
+Training: 31%|███▏ | 6264/20000 [20:20<44:09, 5.18step/s]
+May 21  15:20:21.325
+Training: 32%|███▏ | 6321/20000 [20:34<43:36, 5.23step/s]
+May 21  15:20:26.091
+Training: 32%|███▏ | 6346/20000 [20:39<43:00, 5.29step/s]
+May 21  15:20:36.317
+Training: 32%|███▏ | 6400/20000 [20:49<42:46, 5.30step/s]INFO 2026-05-21 20:20:36 ot_train.py:439 step:6K smpl:102K ep:105 epch:0.34 loss:0.017 grdn:0.344 lr:7.8e-05 updt_s:0.180 data_s:0.022
+May 21  15:20:45.428
+Training: 32%|███▏ | 6448/20000 [20:58<42:40, 5.29step/s]
+May 21  15:21:04.737
+Training: 33%|███▎ | 6550/20000 [21:17<42:25, 5.28step/s]
+May 21  15:21:14.176
+Training: 33%|███▎ | 6600/20000 [21:27<42:32, 5.25step/s]INFO 2026-05-21 20:21:14 ot_train.py:439 step:7K smpl:106K ep:108 epch:0.36 loss:0.015 grdn:0.316 lr:7.7e-05 updt_s:0.173 data_s:0.014
+May 21  15:21:23.991
+Training: 33%|███▎ | 6652/20000 [21:36<42:19, 5.26step/s]
+May 21  15:21:36.646
+Training: 34%|███▎ | 6719/20000 [21:49<41:57, 5.28step/s]
+May 21  15:21:39.482
+Training: 34%|███▎ | 6734/20000 [21:52<42:05, 5.25step/s]
+May 21  15:21:51.976
+Training: 34%|███▍ | 6800/20000 [22:04<41:39, 5.28step/s]INFO 2026-05-21 20:21:51 ot_train.py:439 step:7K smpl:109K ep:112 epch:0.37 loss:0.015 grdn:0.317 lr:7.5e-05 updt_s:0.173 data_s:0.015
+May 21  15:21:58.811
+Training: 34%|███▍ | 6836/20000 [22:11<42:05, 5.21step/s]
+May 21  15:22:18.234
+Training: 35%|███▍ | 6938/20000 [22:31<41:39, 5.22step/s]
+May 21  15:22:29.932
+Training: 35%|███▌ | 7000/20000 [22:42<40:14, 5.38step/s]INFO 2026-05-21 20:22:29 ot_train.py:439 step:7K smpl:112K ep:115 epch:0.38 loss:0.015 grdn:0.315 lr:7.4e-05 updt_s:0.173 data_s:0.015
+May 21  15:22:37.492
+Training: 35%|███▌ | 7040/20000 [22:50<40:42, 5.31step/s]
+May 21  15:22:52.318
+Training: 36%|███▌ | 7117/20000 [23:05<41:06, 5.22step/s]
+May 21  15:22:53.271
+Training: 36%|███▌ | 7122/20000 [23:06<40:59, 5.24step/s]
+May 21  15:23:08.258
+Training: 36%|███▌ | 7200/20000 [23:21<42:25, 5.03step/s]INFO 2026-05-21 20:23:08 ot_train.py:439 step:7K smpl:115K ep:118 epch:0.39 loss:0.015 grdn:0.311 lr:7.3e-05 updt_s:0.175 data_s:0.015
+May 21  15:23:13.047
+Training: 36%|███▌ | 7224/20000 [23:25<42:14, 5.04step/s]
+May 21  15:23:32.713
+Training: 37%|███▋ | 7326/20000 [23:45<40:46, 5.18step/s]
+May 21  15:23:46.925
+Training: 37%|███▋ | 7400/20000 [23:59<40:36, 5.17step/s]INFO 2026-05-21 20:23:46 ot_train.py:439 step:7K smpl:118K ep:122 epch:0.40 loss:0.014 grdn:0.296 lr:7.1e-05 updt_s:0.176 data_s:0.015
+May 21  15:23:52.482
+Training: 37%|███▋ | 7428/20000 [24:05<41:52, 5.00step/s]
+May 21  15:24:09.208
+Training: 38%|███▊ | 7515/20000 [24:22<39:57, 5.21step/s]
+May 21  15:24:25.458
+Training: 38%|███▊ | 7600/20000 [24:38<40:23, 5.12step/s]INFO 2026-05-21 20:24:25 ot_train.py:439 step:8K smpl:122K ep:125 epch:0.41 loss:0.015 grdn:0.302 lr:7.0e-05 updt_s:0.176 data_s:0.015
+May 21  15:24:27.823
+Training: 38%|███▊ | 7612/20000 [24:40<41:08, 5.02step/s]
+May 21  15:24:47.519
+Training: 39%|███▊ | 7714/20000 [25:00<39:12, 5.22step/s]
+May 21  15:25:04.001
+Training: 39%|███▉ | 7800/20000 [25:16<39:45, 5.12step/s]INFO 2026-05-21 20:25:03 ot_train.py:439 step:8K smpl:125K ep:128 epch:0.42 loss:0.014 grdn:0.289 lr:6.8e-05 updt_s:0.176 data_s:0.015
+May 21  15:25:07.170
+Training: 39%|███▉ | 7816/20000 [25:20<40:18, 5.04step/s]
+May 21  15:25:25.955
+Training: 40%|███▉ | 7913/20000 [25:38<38:39, 5.21step/s]
+May 21  15:25:42.786
+Training: 40%|████ | 8000/20000 [25:55<38:21, 5.21step/s]
+May 21  15:25:42.787
+INFO 2026-05-21 20:25:42 ot_train.py:439 step:8K smpl:128K ep:131 epch:0.43 loss:0.013 grdn:0.281 lr:6.7e-05 updt_s:0.177 data_s:0.015
+May 21  15:26:03.113
+Training: 41%|████ | 8102/20000 [26:16<40:11, 4.93step/s]
+May 21  15:26:23.470
+Training: 41%|████ | 8200/20000 [26:36<47:51, 4.11step/s]INFO 2026-05-21 20:26:23 ot_train.py:439 step:8K smpl:131K ep:135 epch:0.44 loss:0.014 grdn:0.300 lr:6.6e-05 updt_s:0.184 data_s:0.017
+May 21  15:26:24.674
+Training: 41%|████ | 8204/20000 [26:37<54:12, 3.63step/s]
+May 21  15:26:45.126
+Training: 42%|████▏ | 8306/20000 [26:58<37:49, 5.15step/s]
+May 21  15:26:46.068
+Training: 42%|████▏ | 8311/20000 [26:59<36:45, 5.30step/s]
+May 21  15:27:00.875
+Training: 42%|████▏ | 8388/20000 [27:13<37:54, 5.11step/s]
+May 21  15:27:03.130
+Training: 42%|████▏ | 8400/20000 [27:16<36:29, 5.30step/s]INFO 2026-05-21 20:27:03 ot_train.py:439 step:8K smpl:134K ep:138 epch:0.45 loss:0.014 grdn:0.283 lr:6.4e-05 updt_s:0.176 data_s:0.020
+May 21  15:27:20.233
+Training: 42%|████▏ | 8490/20000 [27:33<36:10, 5.30step/s]
+May 21  15:27:39.576
+Training: 43%|████▎ | 8592/20000 [27:52<35:49, 5.31step/s]
+May 21  15:27:41.102
+Training: 43%|████▎ | 8600/20000 [27:54<36:21, 5.23step/s]INFO 2026-05-21 20:27:41 ot_train.py:439 step:9K smpl:138K ep:141 epch:0.46 loss:0.013 grdn:0.281 lr:6.3e-05 updt_s:0.173 data_s:0.015
+May 21  15:27:58.939
+Training: 43%|████▎ | 8694/20000 [28:11<36:16, 5.20step/s]
+May 21  15:28:01.794
+Training: 44%|████▎ | 8709/20000 [28:14<35:23, 5.32step/s]
+May 21  15:28:14.496
+Training: 44%|████▍ | 8776/20000 [28:27<35:23, 5.29step/s]
+May 21  15:28:19.065
+Training: 44%|████▍ | 8800/20000 [28:32<35:19, 5.28step/s]INFO 2026-05-21 20:28:19 ot_train.py:439 step:9K smpl:141K ep:145 epch:0.47 loss:0.013 grdn:0.286 lr:6.1e-05 updt_s:0.173 data_s:0.015
+May 21  15:28:33.910
+Training: 44%|████▍ | 8878/20000 [28:46<36:18, 5.11step/s]
+May 21  15:28:53.376
+Training: 45%|████▍ | 8980/20000 [29:06<34:47, 5.28step/s]
+May 21  15:28:57.162
+Training: 45%|████▌ | 9000/20000 [29:10<34:49, 5.26step/s]INFO 2026-05-21 20:28:57 ot_train.py:439 step:9K smpl:144K ep:148 epch:0.48 loss:0.013 grdn:0.273 lr:6.0e-05 updt_s:0.174 data_s:0.015
+May 21  15:29:12.796
+Training: 45%|████▌ | 9082/20000 [29:25<35:43, 5.09step/s]
+May 21  15:29:17.598
+Training: 46%|████▌ | 9107/20000 [29:30<35:10, 5.16step/s]
+May 21  15:29:28.932
+Training: 46%|████▌ | 9164/20000 [29:41<36:19, 4.97step/s]
+May 21  15:29:36.096
+Training: 46%|████▌ | 9200/20000 [29:49<34:34, 5.21step/s]INFO 2026-05-21 20:29:36 ot_train.py:439 step:9K smpl:147K ep:151 epch:0.50 loss:0.013 grdn:0.275 lr:5.8e-05 updt_s:0.177 data_s:0.015
+May 21  15:29:48.757
+Training: 46%|████▋ | 9266/20000 [30:01<33:55, 5.27step/s]
+May 21  15:30:08.094
+Training: 47%|████▋ | 9368/20000 [30:21<33:48, 5.24step/s]
+May 21  15:30:14.159
+Training: 47%|████▋ | 9400/20000 [30:27<33:41, 5.24step/s]INFO 2026-05-21 20:30:14 ot_train.py:439 step:9K smpl:150K ep:154 epch:0.51 loss:0.013 grdn:0.271 lr:5.7e-05 updt_s:0.174 data_s:0.015
+May 21  15:30:27.454
+Training: 47%|████▋ | 9470/20000 [30:40<33:06, 5.30step/s]
+May 21  15:30:34.104
+Training: 48%|████▊ | 9505/20000 [30:47<33:36, 5.20step/s]
+May 21  15:30:43.000
+Training: 48%|████▊ | 9552/20000 [30:55<32:57, 5.28step/s]
+May 21  15:30:52.088
+Training: 48%|████▊ | 9600/20000 [31:05<33:01, 5.25step/s]INFO 2026-05-21 20:30:52 ot_train.py:439 step:10K smpl:154K ep:158 epch:0.52 loss:0.012 grdn:0.253 lr:5.5e-05 updt_s:0.173 data_s:0.015
+May 21  15:31:02.577
+Training: 48%|████▊ | 9654/20000 [31:15<36:54, 4.67step/s]
+May 21  15:31:22.377
+Training: 49%|████▉ | 9756/20000 [31:35<32:24, 5.27step/s]
+May 21  15:31:31.042
+Training: 49%|████▉ | 9800/20000 [31:43<33:11, 5.12step/s]INFO 2026-05-21 20:31:31 ot_train.py:439 step:10K smpl:157K ep:161 epch:0.53 loss:0.012 grdn:0.247 lr:5.4e-05 updt_s:0.178 data_s:0.015
+May 21  15:31:42.198
+Training: 49%|████▉ | 9858/20000 [31:55<32:03, 5.27step/s]
+May 21  15:31:51.010
+Training: 50%|████▉ | 9903/20000 [32:03<31:54, 5.27step/s]
+May 21  15:31:58.010
+Training: 50%|████▉ | 9940/20000 [32:10<31:33, 5.31step/s]
+May 21  15:32:09.374
+Training: 50%|█████ | 10000/20000 [32:22<31:48, 5.24step/s]INFO 2026-05-21 20:32:09 ot_train.py:439 step:10K smpl:160K ep:164 epch:0.54 loss:0.012 grdn:0.262 lr:5.2e-05 updt_s:0.174 data_s:0.016
+May 21  15:32:17.402
+Training: 50%|█████ | 10042/20000 [32:30<31:35, 5.25step/s]
+May 21  15:32:36.894
+Training: 51%|█████ | 10144/20000 [32:49<31:06, 5.28step/s]
+May 21  15:32:47.560
+Training: 51%|█████ | 10200/20000 [33:00<31:24, 5.20step/s]INFO 2026-05-21 20:32:47 ot_train.py:439 step:10K smpl:163K ep:168 epch:0.55 loss:0.011 grdn:0.249 lr:5.0e-05 updt_s:0.174 data_s:0.015
+May 21  15:32:56.290
+Training: 51%|█████ | 10246/20000 [33:09<30:47, 5.28step/s]
+May 21  15:33:06.779
+Training: 52%|█████▏ | 10301/20000 [33:19<30:35, 5.28step/s]
+May 21  15:33:11.896
+Training: 52%|█████▏ | 10328/20000 [33:24<30:25, 5.30step/s]
+May 21  15:33:25.569
+Training: 52%|█████▏ | 10400/20000 [33:38<30:17, 5.28step/s]INFO 2026-05-21 20:33:25 ot_train.py:439 step:10K smpl:166K ep:171 epch:0.56 loss:0.011 grdn:0.251 lr:4.9e-05 updt_s:0.174 data_s:0.015
+May 21  15:33:31.245
+Training: 52%|█████▏ | 10430/20000 [33:44<30:11, 5.28step/s]
+May 21  15:33:50.596
+Training: 53%|█████▎ | 10532/20000 [34:03<29:45, 5.30step/s]
+May 21  15:34:03.566
+Training: 53%|█████▎ | 10600/20000 [34:16<29:32, 5.30step/s]INFO 2026-05-21 20:34:03 ot_train.py:439 step:11K smpl:170K ep:174 epch:0.57 loss:0.011 grdn:0.245 lr:4.7e-05 updt_s:0.174 data_s:0.015
+May 21  15:34:10.017
+Training: 53%|█████▎ | 10634/20000 [34:22<29:51, 5.23step/s]
+May 21  15:34:22.574
+Training: 53%|█████▎ | 10699/20000 [34:35<31:19, 4.95step/s]
+May 21  15:34:27.981
+Training: 54%|█████▎ | 10716/20000 [34:40<58:07, 2.66step/s]
+May 21  15:34:44.184
+Training: 54%|█████▍ | 10800/20000 [34:57<28:54, 5.31step/s]INFO 2026-05-21 20:34:44 ot_train.py:439 step:11K smpl:173K ep:177 epch:0.58 loss:0.012 grdn:0.241 lr:4.6e-05 updt_s:0.181 data_s:0.020
+May 21  15:34:47.600
+Training: 54%|█████▍ | 10818/20000 [35:00<29:24, 5.20step/s]
+May 21  15:35:07.164
+Training: 55%|█████▍ | 10920/20000 [35:20<28:52, 5.24step/s]
+May 21  15:35:22.406
+Training: 55%|█████▌ | 11000/20000 [35:35<28:39, 5.23step/s]INFO 2026-05-21 20:35:22 ot_train.py:439 step:11K smpl:176K ep:181 epch:0.59 loss:0.012 grdn:0.235 lr:4.4e-05 updt_s:0.174 data_s:0.015
+May 21  15:35:26.597
+Training: 55%|█████▌ | 11022/20000 [35:39<28:37, 5.23step/s]
+May 21  15:35:40.875
+Training: 55%|█████▌ | 11097/20000 [35:53<28:04, 5.29step/s]
+May 21  15:35:42.204
+Training: 56%|█████▌ | 11104/20000 [35:55<28:06, 5.28step/s]
+May 21  15:36:00.404
+Training: 56%|█████▌ | 11200/20000 [36:13<28:09, 5.21step/s]INFO 2026-05-21 20:36:00 ot_train.py:439 step:11K smpl:179K ep:184 epch:0.60 loss:0.010 grdn:0.232 lr:4.3e-05 updt_s:0.174 data_s:0.015
+May 21  15:36:01.549
+Training: 56%|█████▌ | 11206/20000 [36:14<28:04, 5.22step/s]
+May 21  15:36:20.934
+Training: 57%|█████▋ | 11308/20000 [36:33<27:44, 5.22step/s]
+May 21  15:36:38.439
+Training: 57%|█████▋ | 11400/20000 [36:51<27:04, 5.29step/s]INFO 2026-05-21 20:36:38 ot_train.py:439 step:11K smpl:182K ep:187 epch:0.61 loss:0.011 grdn:0.233 lr:4.1e-05 updt_s:0.174 data_s:0.015
+May 21  15:36:40.340
+Training: 57%|█████▋ | 11410/20000 [36:53<27:34, 5.19step/s]
+May 21  15:36:56.481
+Training: 57%|█████▋ | 11495/20000 [37:09<26:42, 5.31step/s]
+May 21  15:37:15.249
+Training: 58%|█████▊ | 11594/20000 [37:28<26:52, 5.21step/s]
+May 21  15:37:16.406
+Training: 58%|█████▊ | 11600/20000 [37:29<26:56, 5.20step/s]INFO 2026-05-21 20:37:16 ot_train.py:439 step:12K smpl:186K ep:191 epch:0.62 loss:0.011 grdn:0.229 lr:4.0e-05 updt_s:0.173 data_s:0.015
+May 21  15:37:34.613
+Training: 58%|█████▊ | 11696/20000 [37:47<26:02, 5.31step/s]
+May 21  15:37:53.928
+Training: 59%|█████▉ | 11798/20000 [38:06<26:01, 5.25step/s]
+May 21  15:37:54.305
+Training: 59%|█████▉ | 11800/20000 [38:07<25:51, 5.29step/s]INFO 2026-05-21 20:37:54 ot_train.py:439 step:12K smpl:189K ep:194 epch:0.64 loss:0.011 grdn:0.233 lr:3.8e-05 updt_s:0.173 data_s:0.015
+May 21  15:38:11.965
+Training: 59%|█████▉ | 11893/20000 [38:24<25:49, 5.23step/s]
+May 21  15:38:29.426
+Training: 60%|█████▉ | 11982/20000 [38:42<26:00, 5.14step/s]
+May 21  15:38:32.908
+Training: 60%|██████ | 12000/20000 [38:45<25:54, 5.15step/s]INFO 2026-05-21 20:38:32 ot_train.py:439 step:12K smpl:192K ep:197 epch:0.65 loss:0.011 grdn:0.233 lr:3.7e-05 updt_s:0.176 data_s:0.015
+May 21  15:38:49.204
+Training: 60%|██████ | 12084/20000 [39:02<26:19, 5.01step/s]
+May 21  15:39:08.993
+Training: 61%|██████ | 12186/20000 [39:21<25:14, 5.16step/s]
+May 21  15:39:11.668
+Training: 61%|██████ | 12200/20000 [39:24<24:49, 5.24step/s]INFO 2026-05-21 20:39:11 ot_train.py:439 step:12K smpl:195K ep:200 epch:0.66 loss:0.010 grdn:0.223 lr:3.5e-05 updt_s:0.177 data_s:0.015
+May 21  15:39:28.516
+Training: 61%|██████▏ | 12288/20000 [39:41<24:39, 5.21step/s]
+May 21  15:39:29.093
+Training: 61%|██████▏ | 12291/20000 [39:42<24:36, 5.22step/s]
+May 21  15:39:44.220
+Training: 62%|██████▏ | 12370/20000 [39:57<24:15, 5.24step/s]
+May 21  15:39:49.995
+Training: 62%|██████▏ | 12400/20000 [40:02<24:10, 5.24step/s]INFO 2026-05-21 20:39:49 ot_train.py:439 step:12K smpl:198K ep:204 epch:0.67 loss:0.011 grdn:0.217 lr:3.4e-05 updt_s:0.175 data_s:0.015
+May 21  15:40:03.959
+Training: 62%|██████▏ | 12472/20000 [40:16<24:16, 5.17step/s]
+May 21  15:40:23.329
+Training: 63%|██████▎ | 12574/20000 [40:36<23:39, 5.23step/s]
+May 21  15:40:28.271
+Training: 63%|██████▎ | 12600/20000 [40:41<23:27, 5.26step/s]INFO 2026-05-21 20:40:28 ot_train.py:439 step:13K smpl:202K ep:207 epch:0.68 loss:0.010 grdn:0.205 lr:3.3e-05 updt_s:0.175 data_s:0.015
+May 21  15:40:42.770
+Training: 63%|██████▎ | 12676/20000 [40:55<23:23, 5.22step/s]
+May 21  15:40:45.357
+Training: 63%|██████▎ | 12689/20000 [40:58<24:44, 4.93step/s]
+May 21  15:40:58.564
+Training: 64%|██████▍ | 12758/20000 [41:11<22:53, 5.27step/s]
+May 21  15:41:06.541
+Training: 64%|██████▍ | 12800/20000 [41:19<22:45, 5.27step/s]INFO 2026-05-21 20:41:06 ot_train.py:439 step:13K smpl:205K ep:210 epch:0.69 loss:0.010 grdn:0.214 lr:3.1e-05 updt_s:0.175 data_s:0.015
+May 21  15:41:18.020
+Training: 64%|██████▍ | 12860/20000 [41:30<22:56, 5.19step/s]
+May 21  15:41:38.011
+Training: 65%|██████▍ | 12962/20000 [41:50<22:36, 5.19step/s]
+May 21  15:41:45.303
+Training: 65%|██████▌ | 13000/20000 [41:58<22:26, 5.20step/s]INFO 2026-05-21 20:41:45 ot_train.py:439 step:13K smpl:208K ep:214 epch:0.70 loss:0.010 grdn:0.202 lr:3.0e-05 updt_s:0.177 data_s:0.015
+May 21  15:41:57.443
+Training: 65%|██████▌ | 13064/20000 [42:10<21:56, 5.27step/s]
+May 21  15:42:01.799
+Training: 65%|██████▌ | 13087/20000 [42:14<21:56, 5.25step/s]
+May 21  15:42:14.546
+Training: 66%|██████▌ | 13146/20000 [42:27<22:13, 5.14step/s]
+May 21  15:42:25.095
+Training: 66%|██████▌ | 13200/20000 [42:38<21:46, 5.20step/s]INFO 2026-05-21 20:42:25 ot_train.py:439 step:13K smpl:211K ep:217 epch:0.71 loss:0.010 grdn:0.215 lr:2.8e-05 updt_s:0.179 data_s:0.018
+May 21  15:42:34.248
+Training: 66%|██████▌ | 13248/20000 [42:47<21:21, 5.27step/s]
+May 21  15:42:53.604
+Training: 67%|██████▋ | 13350/20000 [43:06<20:41, 5.36step/s]
+May 21  15:43:07.246
+Training: 67%|██████▋ | 13400/20000 [43:20<31:52, 3.45step/s]INFO 2026-05-21 20:43:07 ot_train.py:439 step:13K smpl:214K ep:220 epch:0.72 loss:0.010 grdn:0.206 lr:2.7e-05 updt_s:0.184 data_s:0.025
+May 21  15:43:21.630
+Training: 67%|██████▋ | 13452/20000 [43:34<34:08, 3.20step/s]
+May 21  15:43:30.587
+Training: 67%|██████▋ | 13485/20000 [43:43<28:57, 3.75step/s]
+May 21  15:43:40.281
+Training: 68%|██████▊ | 13534/20000 [43:53<20:41, 5.21step/s]
+May 21  15:43:55.909
+Training: 68%|██████▊ | 13600/20000 [44:08<21:02, 5.07step/s]INFO 2026-05-21 20:43:55 ot_train.py:439 step:14K smpl:218K ep:223 epch:0.73 loss:0.009 grdn:0.203 lr:2.6e-05 updt_s:0.205 data_s:0.036
+May 21  15:44:02.789
+Training: 68%|██████▊ | 13636/20000 [44:15<20:06, 5.27step/s]
+May 21  15:44:22.187
+Training: 69%|██████▊ | 13738/20000 [44:35<19:47, 5.27step/s]
+May 21  15:44:33.988
+Training: 69%|██████▉ | 13800/20000 [44:46<19:42, 5.24step/s]INFO 2026-05-21 20:44:33 ot_train.py:439 step:14K smpl:221K ep:227 epch:0.74 loss:0.010 grdn:0.202 lr:2.4e-05 updt_s:0.174 data_s:0.015
+May 21  15:44:41.635
+Training: 69%|██████▉ | 13840/20000 [44:54<19:34, 5.24step/s]
+May 21  15:44:49.876
+Training: 69%|██████▉ | 13883/20000 [45:02<19:38, 5.19step/s]
+May 21  15:44:57.362
+Training: 70%|██████▉ | 13922/20000 [45:10<19:40, 5.15step/s]
+May 21  15:45:12.361
+Training: 70%|███████ | 14000/20000 [45:25<19:07, 5.23step/s]INFO 2026-05-21 20:45:12 ot_train.py:439 step:14K smpl:224K ep:230 epch:0.75 loss:0.010 grdn:0.206 lr:2.3e-05 updt_s:0.175 data_s:0.015
+May 21  15:45:16.922
+Training: 70%|███████ | 14024/20000 [45:29<18:54, 5.27step/s]
+May 21  15:45:36.395
+Training: 71%|███████ | 14126/20000 [45:49<18:45, 5.22step/s]
+May 21  15:45:50.457
+Training: 71%|███████ | 14200/20000 [46:03<18:14, 5.30step/s]INFO 2026-05-21 20:45:50 ot_train.py:439 step:14K smpl:227K ep:233 epch:0.76 loss:0.009 grdn:0.203 lr:2.2e-05 updt_s:0.174 data_s:0.015
+May 21  15:45:55.804
+Training: 71%|███████ | 14228/20000 [46:08<18:35, 5.18step/s]
+May 21  15:46:05.923
+Training: 71%|███████▏ | 14281/20000 [46:18<18:09, 5.25step/s]
+May 21  15:46:11.458
+Training: 72%|███████▏ | 14310/20000 [46:24<17:57, 5.28step/s]
+May 21  15:46:28.586
+Training: 72%|███████▏ | 14400/20000 [46:41<17:43, 5.26step/s]INFO 2026-05-21 20:46:28 ot_train.py:439 step:14K smpl:230K ep:237 epch:0.78 loss:0.009 grdn:0.195 lr:2.1e-05 updt_s:0.174 data_s:0.015
+May 21  15:46:30.870
+Training: 72%|███████▏ | 14412/20000 [46:43<17:44, 5.25step/s]
+May 21  15:46:50.444
+Training: 73%|███████▎ | 14514/20000 [47:03<17:27, 5.23step/s]
+May 21  15:47:06.925
+Training: 73%|███████▎ | 14600/20000 [47:19<17:12, 5.23step/s]INFO 2026-05-21 20:47:06 ot_train.py:439 step:15K smpl:234K ep:240 epch:0.79 loss:0.009 grdn:0.196 lr:2.0e-05 updt_s:0.175 data_s:0.015
+May 21  15:47:09.998
+Training: 73%|███████▎ | 14616/20000 [47:22<17:17, 5.19step/s]
+May 21  15:47:22.064
+Training: 73%|███████▎ | 14679/20000 [47:35<16:57, 5.23step/s]
+May 21  15:47:25.696
+Training: 73%|███████▎ | 14698/20000 [47:38<16:38, 5.31step/s]
+May 21  15:47:45.542
+Training: 74%|███████▍ | 14800/20000 [47:58<16:45, 5.17step/s]
+May 21  15:47:45.543
+INFO 2026-05-21 20:47:45 ot_train.py:439 step:15K smpl:237K ep:243 epch:0.80 loss:0.009 grdn:0.194 lr:1.8e-05 updt_s:0.176 data_s:0.015
+May 21  15:48:05.109
+Training: 75%|███████▍ | 14902/20000 [48:18<16:09, 5.26step/s]
+May 21  15:48:23.868
+Training: 75%|███████▌ | 15000/20000 [48:36<16:01, 5.20step/s]INFO 2026-05-21 20:48:23 ot_train.py:439 step:15K smpl:240K ep:246 epch:0.81 loss:0.009 grdn:0.187 lr:1.7e-05 updt_s:0.175 data_s:0.015
+May 21  15:48:24.625
+Training: 75%|███████▌ | 15004/20000 [48:37<15:51, 5.25step/s]
+May 21  15:48:38.610
+Training: 75%|███████▌ | 15077/20000 [48:51<15:41, 5.23step/s]
+May 21  15:48:40.327
+Training: 75%|███████▌ | 15086/20000 [48:53<15:35, 5.25step/s]
+May 21  15:48:59.766
+Training: 76%|███████▌ | 15188/20000 [49:12<15:14, 5.26step/s]
+May 21  15:49:02.042
+Training: 76%|███████▌ | 15200/20000 [49:14<15:09, 5.28step/s]INFO 2026-05-21 20:49:02 ot_train.py:439 step:15K smpl:243K ep:250 epch:0.82 loss:0.009 grdn:0.185 lr:1.6e-05 updt_s:0.174 data_s:0.015
+May 21  15:49:19.175
+Training: 76%|███████▋ | 15290/20000 [49:32<15:27, 5.08step/s]
+May 21  15:49:38.606
+Training: 77%|███████▋ | 15392/20000 [49:51<14:36, 5.26step/s]
+May 21  15:49:40.116
+Training: 77%|███████▋ | 15400/20000 [49:53<14:27, 5.30step/s]INFO 2026-05-21 20:49:40 ot_train.py:439 step:15K smpl:246K ep:253 epch:0.83 loss:0.009 grdn:0.189 lr:1.5e-05 updt_s:0.174 data_s:0.015
+May 21  15:49:54.368
+Training: 77%|███████▋ | 15475/20000 [50:07<14:21, 5.25step/s]
+May 21  15:50:13.755
+Training: 78%|███████▊ | 15576/20000 [50:26<14:04, 5.24step/s]
+May 21  15:50:18.341
+Training: 78%|███████▊ | 15600/20000 [50:31<14:02, 5.22step/s]INFO 2026-05-21 20:50:18 ot_train.py:439 step:16K smpl:250K ep:256 epch:0.84 loss:0.009 grdn:0.194 lr:1.4e-05 updt_s:0.175 data_s:0.015
+May 21  15:50:33.477
+Training: 78%|███████▊ | 15678/20000 [50:46<13:48, 5.22step/s]
+May 21  15:50:53.031
+Training: 79%|███████▉ | 15780/20000 [51:05<13:36, 5.17step/s]
+May 21  15:50:56.838
+Training: 79%|███████▉ | 15800/20000 [51:09<13:18, 5.26step/s]INFO 2026-05-21 20:50:56 ot_train.py:439 step:16K smpl:253K ep:260 epch:0.85 loss:0.009 grdn:0.180 lr:1.3e-05 updt_s:0.176 data_s:0.015
+May 21  15:51:10.925
+Training: 79%|███████▉ | 15873/20000 [51:23<13:16, 5.18step/s]
+May 21  15:51:28.273
+Training: 80%|███████▉ | 15964/20000 [51:41<12:55, 5.21step/s]
+May 21  15:51:35.136
+Training: 80%|████████ | 16000/20000 [51:48<12:40, 5.26step/s]INFO 2026-05-21 20:51:35 ot_train.py:439 step:16K smpl:256K ep:263 epch:0.86 loss:0.008 grdn:0.166 lr:1.2e-05 updt_s:0.175 data_s:0.015
+May 21  15:51:47.678
+Training: 80%|████████ | 16066/20000 [52:00<12:30, 5.24step/s]
+May 21  15:52:06.960
+Training: 81%|████████ | 16168/20000 [52:19<12:12, 5.23step/s]
+May 21  15:52:12.986
+Training: 81%|████████ | 16200/20000 [52:25<11:59, 5.28step/s]INFO 2026-05-21 20:52:12 ot_train.py:439 step:16K smpl:259K ep:266 epch:0.87 loss:0.009 grdn:0.182 lr:1.1e-05 updt_s:0.173 data_s:0.015
+May 21  15:52:26.232
+Training: 81%|████████▏ | 16270/20000 [52:39<11:40, 5.32step/s]
+May 21  15:52:26.419
+Training: 81%|████████▏ | 16271/20000 [52:39<11:38, 5.34step/s]
+May 21  15:52:41.800
+Training: 82%|████████▏ | 16352/20000 [52:54<11:34, 5.25step/s]
+May 21  15:52:50.930
+Training: 82%|████████▏ | 16400/20000 [53:03<11:30, 5.21step/s]INFO 2026-05-21 20:52:50 ot_train.py:439 step:16K smpl:262K ep:269 epch:0.88 loss:0.009 grdn:0.168 lr:1.1e-05 updt_s:0.173 data_s:0.015
+May 21  15:53:01.167
+Training: 82%|████████▏ | 16454/20000 [53:14<11:14, 5.26step/s]
+May 21  15:53:21.669
+Training: 83%|████████▎ | 16556/20000 [53:34<11:40, 4.92step/s]
+May 21  15:53:30.427
+Training: 83%|████████▎ | 16600/20000 [53:43<11:26, 4.95step/s]INFO 2026-05-21 20:53:30 ot_train.py:439 step:17K smpl:266K ep:273 epch:0.89 loss:0.009 grdn:0.170 lr:9.7e-06 updt_s:0.180 data_s:0.015
+May 21  15:53:41.574
+Training: 83%|████████▎ | 16658/20000 [53:54<10:27, 5.32step/s]
+May 21  15:53:43.666
+Training: 83%|████████▎ | 16669/20000 [53:56<10:34, 5.25step/s]
+May 21  15:53:57.028
+Training: 84%|████████▎ | 16740/20000 [54:09<10:15, 5.30step/s]
+May 21  15:54:08.417
+Training: 84%|████████▍ | 16800/20000 [54:21<10:05, 5.29step/s]INFO 2026-05-21 20:54:08 ot_train.py:439 step:17K smpl:269K ep:276 epch:0.91 loss:0.009 grdn:0.177 lr:8.9e-06 updt_s:0.173 data_s:0.015
+May 21  15:54:16.381
+Training: 84%|████████▍ | 16842/20000 [54:29<09:57, 5.28step/s]
+May 21  15:54:37.639
+Training: 85%|████████▍ | 16944/20000 [54:50<19:28, 2.62step/s]
+May 21  15:54:49.476
+Training: 85%|████████▌ | 17000/20000 [55:02<09:57, 5.02step/s]INFO 2026-05-21 20:54:49 ot_train.py:439 step:17K smpl:272K ep:279 epch:0.92 loss:0.009 grdn:0.173 lr:8.2e-06 updt_s:0.182 data_s:0.022
+May 21  15:54:58.364
+Training: 85%|████████▌ | 17046/20000 [55:11<09:26, 5.21step/s]
+May 21  15:55:02.348
+Training: 85%|████████▌ | 17067/20000 [55:15<09:09, 5.34step/s]
+May 21  15:55:13.953
+Training: 86%|████████▌ | 17128/20000 [55:26<09:09, 5.23step/s]
+May 21  15:55:27.594
+Training: 86%|████████▌ | 17200/20000 [55:40<08:53, 5.25step/s]INFO 2026-05-21 20:55:27 ot_train.py:439 step:17K smpl:275K ep:283 epch:0.93 loss:0.009 grdn:0.171 lr:7.5e-06 updt_s:0.174 data_s:0.015
+May 21  15:55:33.270
+Training: 86%|████████▌ | 17230/20000 [55:46<08:44, 5.28step/s]
+May 21  15:55:52.622
+Training: 87%|████████▋ | 17332/20000 [56:05<08:25, 5.28step/s]
+May 21  15:56:05.575
+Training: 87%|████████▋ | 17400/20000 [56:18<08:14, 5.26step/s]INFO 2026-05-21 20:56:05 ot_train.py:439 step:17K smpl:278K ep:286 epch:0.94 loss:0.008 grdn:0.165 lr:6.8e-06 updt_s:0.173 data_s:0.015
+May 21  15:56:12.049
+Training: 87%|████████▋ | 17434/20000 [56:24<08:17, 5.16step/s]
+May 21  15:56:17.951
+Training: 87%|████████▋ | 17465/20000 [56:30<08:03, 5.24step/s]
+May 21  15:56:27.658
+Training: 88%|████████▊ | 17516/20000 [56:40<07:56, 5.22step/s]
+May 21  15:56:43.569
+Training: 88%|████████▊ | 17600/20000 [56:56<07:32, 5.30step/s]INFO 2026-05-21 20:56:43 ot_train.py:439 step:18K smpl:282K ep:289 epch:0.95 loss:0.008 grdn:0.165 lr:6.2e-06 updt_s:0.174 data_s:0.015
+May 21  15:56:46.988
+Training: 88%|████████▊ | 17618/20000 [56:59<07:31, 5.28step/s]
+May 21  15:57:06.328
+Training: 89%|████████▊ | 17720/20000 [57:19<07:10, 5.29step/s]
+May 21  15:57:21.499
+Training: 89%|████████▉ | 17800/20000 [57:34<06:58, 5.25step/s]INFO 2026-05-21 20:57:21 ot_train.py:439 step:18K smpl:285K ep:292 epch:0.96 loss:0.009 grdn:0.174 lr:5.6e-06 updt_s:0.173 data_s:0.015
+May 21  15:57:25.690
+Training: 89%|████████▉ | 17822/20000 [57:38<06:54, 5.26step/s]
+May 21  15:57:33.481
+Training: 89%|████████▉ | 17863/20000 [57:46<06:43, 5.30step/s]
+May 21  15:57:41.255
+Training: 90%|████████▉ | 17904/20000 [57:54<06:38, 5.27step/s]
+May 21  15:57:59.482
+Training: 90%|█████████ | 18000/20000 [58:12<06:24, 5.20step/s]INFO 2026-05-21 20:57:59 ot_train.py:439 step:18K smpl:288K ep:296 epch:0.97 loss:0.009 grdn:0.174 lr:5.1e-06 updt_s:0.173 data_s:0.015
+May 21  15:58:00.610
+Training: 90%|█████████ | 18006/20000 [58:13<06:17, 5.28step/s]
+May 21  15:58:20.088
+Training: 91%|█████████ | 18108/20000 [58:33<06:05, 5.18step/s]
+May 21  15:58:37.543
+Training: 91%|█████████ | 18200/20000 [58:50<05:42, 5.25step/s]INFO 2026-05-21 20:58:37 ot_train.py:439 step:18K smpl:291K ep:299 epch:0.98 loss:0.009 grdn:0.174 lr:4.7e-06 updt_s:0.174 data_s:0.015
+May 21  15:58:39.429
+Training: 91%|█████████ | 18210/20000 [58:52<05:36, 5.32step/s]
+May 21  15:58:49.102
+Training: 91%|█████████▏| 18261/20000 [59:02<05:28, 5.30step/s]
+May 21  15:58:54.984
+Training: 91%|█████████▏| 18292/20000 [59:07<05:23, 5.28step/s]
+May 21  15:59:14.420
+Training: 92%|█████████▏| 18394/20000 [59:27<05:06, 5.25step/s]
+May 21  15:59:15.567
+Training: 92%|█████████▏| 18400/20000 [59:28<05:04, 5.25step/s]INFO 2026-05-21 20:59:15 ot_train.py:439 step:18K smpl:294K ep:302 epch:0.99 loss:0.008 grdn:0.162 lr:4.2e-06 updt_s:0.174 data_s:0.015
+May 21  15:59:33.931
+Training: 92%|█████████▏| 18496/20000 [59:46<04:46, 5.25step/s]
+May 21  15:59:57.409
+Training: 93%|█████████▎| 18598/20000 [1:00:10<04:36, 5.08step/s]
+May 21  15:59:57.816
+Training: 93%|█████████▎| 18600/20000 [1:00:10<04:39, 5.01step/s]INFO 2026-05-21 20:59:57 ot_train.py:439 step:19K smpl:298K ep:306 epch:1.00 loss:0.009 grdn:0.166 lr:3.8e-06 updt_s:0.178 data_s:0.031
+May 21  16:00:09.190
+Training: 93%|█████████▎| 18659/20000 [1:00:22<04:16, 5.23step/s]
+May 21  16:00:13.173
+Training: 93%|█████████▎| 18680/20000 [1:00:26<04:08, 5.31step/s]
+May 21  16:00:32.519
+Training: 94%|█████████▍| 18782/20000 [1:00:45<03:46, 5.37step/s]
+May 21  16:00:35.936
+Training: 94%|█████████▍| 18800/20000 [1:00:48<03:46, 5.29step/s]INFO 2026-05-21 21:00:35 ot_train.py:439 step:19K smpl:301K ep:309 epch:1.01 loss:0.009 grdn:0.172 lr:3.5e-06 updt_s:0.174 data_s:0.015
+May 21  16:00:52.322
+Training: 94%|█████████▍| 18884/20000 [1:01:05<03:31, 5.27step/s]
+May 21  16:01:11.764
+Training: 95%|█████████▍| 18986/20000 [1:01:24<03:19, 5.10step/s]
+May 21  16:01:14.500
+Training: 95%|█████████▌| 19000/20000 [1:01:27<03:21, 4.97step/s]INFO 2026-05-21 21:01:14 ot_train.py:439 step:19K smpl:304K ep:312 epch:1.02 loss:0.008 grdn:0.165 lr:3.2e-06 updt_s:0.176 data_s:0.015
+May 21  16:01:25.559
+Training: 95%|█████████▌| 19057/20000 [1:01:38<03:04, 5.11step/s]
+May 21  16:01:27.638
+Training: 95%|█████████▌| 19068/20000 [1:01:40<02:55, 5.31step/s]
+May 21  16:01:47.382
+Training: 96%|█████████▌| 19170/20000 [1:02:00<02:35, 5.32step/s]
+May 21  16:01:53.053
+Training: 96%|█████████▌| 19200/20000 [1:02:05<02:31, 5.28step/s]INFO 2026-05-21 21:01:53 ot_train.py:439 step:19K smpl:307K ep:315 epch:1.03 loss:0.008 grdn:0.161 lr:3.0e-06 updt_s:0.176 data_s:0.014
+May 21  16:02:06.720
+Training: 96%|█████████▋| 19272/20000 [1:02:19<02:17, 5.28step/s]
+May 21  16:02:26.223
+Training: 97%|█████████▋| 19374/20000 [1:02:39<01:57, 5.31step/s]
+May 21  16:02:31.163
+Training: 97%|█████████▋| 19400/20000 [1:02:44<01:54, 5.24step/s]INFO 2026-05-21 21:02:31 ot_train.py:439 step:19K smpl:310K ep:319 epch:1.05 loss:0.008 grdn:0.160 lr:2.8e-06 updt_s:0.174 data_s:0.015
+May 21  16:02:41.607
+Training: 97%|█████████▋| 19455/20000 [1:02:54<01:44, 5.24step/s]
+May 21  16:02:41.791
+Training: 97%|█████████▋| 19456/20000 [1:02:54<01:42, 5.29step/s]
+May 21  16:03:01.576
+Training: 98%|█████████▊| 19558/20000 [1:03:14<01:30, 4.87step/s]
+May 21  16:03:09.811
+Training: 98%|█████████▊| 19600/20000 [1:03:22<01:22, 4.87step/s]INFO 2026-05-21 21:03:09 ot_train.py:439 step:20K smpl:314K ep:322 epch:1.06 loss:0.009 grdn:0.166 lr:2.7e-06 updt_s:0.176 data_s:0.015
+May 21  16:03:21.502
+Training: 98%|█████████▊| 19660/20000 [1:03:34<01:05, 5.16step/s]
+May 21  16:03:41.059
+Training: 99%|█████████▉| 19762/20000 [1:03:54<00:45, 5.27step/s]
+May 21  16:03:48.315
+Training: 99%|█████████▉| 19800/20000 [1:04:01<00:38, 5.23step/s]INFO 2026-05-21 21:03:48 ot_train.py:439 step:20K smpl:317K ep:325 epch:1.07 loss:0.008 grdn:0.158 lr:2.6e-06 updt_s:0.176 data_s:0.014
+May 21  16:03:58.404
+Training: 99%|█████████▉| 19853/20000 [1:04:11<00:28, 5.25step/s]
+May 21  16:04:18.195
+Training: 100%|█████████▉| 19955/20000 [1:04:31<00:08, 5.12step/s]
+May 21  16:04:26.837
+Training: 100%|██████████| 20000/20000 [1:04:39<00:00, 5.11step/s]INFO 2026-05-21 21:04:26 ot_train.py:439 step:20K smpl:320K ep:329 epch:1.08 loss:0.009 grdn:0.170 lr:2.5e-06 updt_s:0.176 data_s:0.015
+May 21  16:04:26.837
+INFO 2026-05-21 21:04:26 ot_train.py:459 Checkpoint policy after step 20000
+May 21  16:04:30.121
+Training: 100%|██████████| 20000/20000 [1:04:43<00:00, 5.15step/s]
+May 21  16:04:30.121
+INFO 2026-05-21 21:04:30 ot_train.py:533 End of training
+May 21  16:04:30.871
+INFO 2026-05-21 21:04:30 _client.py:1025 HTTP Request: POST https://huggingface.co/api/repos/create "HTTP/1.1 200 OK"
+May 21  16:04:32.068
+INFO 2026-05-21 21:04:32 _client.py:1025 HTTP Request: POST https://huggingface.co/api/validate-yaml "HTTP/1.1 200 OK"
+May 21  16:04:32.158
+INFO 2026-05-21 21:04:32 _client.py:1025 HTTP Request: POST https://huggingface.co/api/validate-yaml "HTTP/1.1 200 OK"
+May 21  16:04:34.419
+INFO 2026-05-21 21:04:34 _client.py:1025 HTTP Request: POST https://huggingface.co/api/validate-yaml "HTTP/1.1 200 OK"
+May 21  16:04:34.548
+INFO 2026-05-21 21:04:34 _client.py:1025 HTTP Request: POST https://huggingface.co/api/models/CarlosMunoz0/smolvla-so101-merged-20000step_bs16_ep305-v1/preupload/main "HTTP/1.1 200 OK"
+May 21  16:04:34.672
+INFO 2026-05-21 21:04:34 _client.py:1025 HTTP Request: POST https://huggingface.co/CarlosMunoz0/smolvla-so101-merged-20000step_bs16_ep305-v1.git/info/lfs/objects/batch "HTTP/1.1 200 OK"
+May 21  16:04:34.773
+INFO 2026-05-21 21:04:34 _client.py:1025 HTTP Request: GET https://huggingface.co/api/models/CarlosMunoz0/smolvla-so101-merged-20000step_bs16_ep305-v1/xet-write-token/main "HTTP/1.1 200 OK"
+May 21  16:04:34.774
+Processing Files (0 / 0) : | | 0.00B / 0.00B
+May 21  16:04:35.836
+New Data Upload : | | 0.00B / 0.00B
+May 21  16:04:35.836
+...p305-v1/model.safetensors: 0%| | 608kB / 907MB
+May 21  16:04:35.836
+Processing Files (0 / 1) : 0%| | 608kB / 907MB, 59.0kB/s
+May 21  16:04:36.084
+New Data Upload : 0%| | 608kB / 134MB, 59.0kB/s
+May 21  16:04:36.085
+Processing Files (0 / 1) : 1%| | 5.48MB / 907MB, 527kB/s
+May 21  16:04:36.335
+New Data Upload : 4%|▍ | 5.48MB / 134MB, 527kB/s
+May 21  16:04:36.335
+Processing Files (0 / 1) : 3%|▎ | 23.8MB / 907MB, 2.26MB/s
+May 21  16:04:36.584
+New Data Upload : 12%|█▏ | 23.8MB / 201MB, 2.26MB/s
+May 21  16:04:36.585
+Processing Files (0 / 1) : 4%|▍ | 39.3MB / 907MB, 3.69MB/s
+May 21  16:04:36.835
+New Data Upload : 20%|█▉ | 39.3MB / 201MB, 3.69MB/s
+May 21  16:04:36.835
+Processing Files (0 / 1) : 7%|▋ | 59.2MB / 907MB, 5.47MB/s
+May 21  16:04:37.085
+New Data Upload : 29%|██▉ | 59.2MB / 201MB, 5.47MB/s
+May 21  16:04:37.085
+Processing Files (0 / 1) : 9%|▊ | 77.2MB / 907MB, 7.04MB/s
+May 21  16:04:37.335
+New Data Upload : 38%|███▊ | 77.2MB / 201MB, 7.04MB/s
+May 21  16:04:37.335
+Processing Files (0 / 1) : 11%|█ | 95.8MB / 907MB, 8.61MB/s
+May 21  16:04:37.585
+New Data Upload : 48%|████▊ | 95.8MB / 201MB, 8.61MB/s
+May 21  16:04:37.585
+Processing Files (0 / 1) : 11%|█ | 102MB / 907MB, 8.97MB/s
+May 21  16:04:37.835
+New Data Upload : 51%|█████ | 102MB / 201MB, 8.97MB/s
+May 21  16:04:37.835
+Processing Files (0 / 1) : 12%|█▏ | 108MB / 907MB, 9.33MB/s
+May 21  16:04:38.084
+New Data Upload : 54%|█████▎ | 108MB / 201MB, 9.33MB/s
+May 21  16:04:38.085
+Processing Files (0 / 1) : 13%|█▎ | 115MB / 907MB, 9.76MB/s
+May 21  16:04:38.335
+New Data Upload : 57%|█████▋ | 115MB / 201MB, 9.76MB/s
+May 21  16:04:38.335
+...p305-v1/model.safetensors: 13%|█▎ | 121MB / 907MB
+May 21  16:04:38.335
+Processing Files (0 / 1) : 13%|█▎ | 121MB / 907MB, 10.1MB/s
+May 21  16:04:38.585
+New Data Upload : 60%|██████ | 121MB / 201MB, 10.1MB/s
+May 21  16:04:38.585
+Processing Files (0 / 1) : 16%|█▋ | 148MB / 907MB, 12.3MB/s
+May 21  16:04:38.834
+New Data Upload : 65%|██████▌ | 132MB / 201MB, 10.8MB/s
+May 21  16:04:38.835
+Processing Files (0 / 1) : 42%|████▏ | 377MB / 907MB, 32.6MB/s
+May 21  16:04:39.084
+New Data Upload : 77%|███████▋ | 155MB / 201MB, 12.7MB/s
+May 21  16:04:39.085
+Processing Files (0 / 1) : 52%|█████▏ | 471MB / 907MB, 40.3MB/s
+May 21  16:04:39.335
+New Data Upload : 63%|██████▎ | 170MB / 268MB, 13.7MB/s
+May 21  16:04:39.335
+Processing Files (0 / 1) : 64%|██████▎ | 577MB / 907MB, 48.9MB/s
+May 21  16:04:39.584
+New Data Upload : 72%|███████▏ | 194MB / 268MB, 15.6MB/s
+May 21  16:04:39.584
+Processing Files (0 / 1) : 86%|████████▌ | 780MB / 907MB, 65.8MB/s
+May 21  16:04:39.835
+New Data Upload : 76%|███████▋ | 205MB / 268MB, 16.2MB/s
+May 21  16:04:39.835
+Processing Files (0 / 1) : 89%|████████▉ | 807MB / 907MB, 66.8MB/s
+May 21  16:04:40.085
+New Data Upload : 68%|██████▊ | 213MB / 313MB, 16.6MB/s
+May 21  16:04:40.085
+Processing Files (0 / 1) : 91%|█████████ | 824MB / 907MB, 66.7MB/s
+May 21  16:04:40.335
+New Data Upload : 73%|███████▎ | 230MB / 313MB, 17.6MB/s
+May 21  16:04:40.335
+Processing Files (0 / 1) : 93%|█████████▎| 846MB / 907MB, 67.2MB/s
+May 21  16:04:40.585
+New Data Upload : 81%|████████ | 252MB / 313MB, 19.2MB/s
+May 21  16:04:40.585
+Processing Files (0 / 1) : 96%|█████████▌| 866MB / 907MB, 67.5MB/s
+May 21  16:04:40.835
+New Data Upload : 87%|████████▋ | 272MB / 313MB, 20.5MB/s
+May 21  16:04:40.835
+Processing Files (0 / 1) : 97%|█████████▋| 883MB / 907MB, 67.5MB/s
+May 21  16:04:41.085
+New Data Upload : 92%|█████████▏| 289MB / 313MB, 21.5MB/s
+May 21  16:04:41.086
+Processing Files (0 / 1) : 98%|█████████▊| 889MB / 907MB, 66.6MB/s
+May 21  16:04:41.335
+New Data Upload : 94%|█████████▍| 295MB / 313MB, 21.6MB/s
+May 21  16:04:41.335
+Processing Files (0 / 1) : 99%|█████████▊| 895MB / 907MB, 65.6MB/s
+May 21  16:04:41.586
+New Data Upload : 96%|█████████▌| 301MB / 313MB, 21.6MB/s
+May 21  16:04:41.586
+Processing Files (0 / 1) : 99%|█████████▉| 901MB / 907MB, 64.8MB/s
+May 21  16:04:41.835
+New Data Upload : 98%|█████████▊| 307MB / 313MB, 21.7MB/s
+May 21  16:04:41.835
+Processing Files (0 / 1) : 100%|█████████▉| 906MB / 907MB, 63.8MB/s
+May 21  16:04:42.585
+New Data Upload : 100%|█████████▉| 312MB / 313MB, 21.7MB/s
+May 21  16:04:42.585
+Processing Files (1 / 1) : 100%|██████████| 907MB / 907MB, 59.9MB/s
+May 21  16:04:43.133
+Processing Files (1 / 1) : 100%|██████████| 907MB / 907MB, 59.9MB/s
+May 21  16:04:43.133
+New Data Upload : 100%|██████████| 313MB / 313MB, 20.4MB/s
+May 21  16:04:43.133
+...p305-v1/model.safetensors: 100%|██████████| 907MB / 907MB
+May 21  16:04:44.093
+INFO 2026-05-21 21:04:44 _client.py:1025 HTTP Request: POST https://huggingface.co/api/models/CarlosMunoz0/smolvla-so101-merged-20000step_bs16_ep305-v1/commit/main "HTTP/1.1 200 OK"
+May 21  16:04:44.094
+INFO 2026-05-21 21:04:44 etrained.py:245 Model pushed to https://huggingface.co/CarlosMunoz0/smolvla-so101-merged-20000step_bs16_ep305-v1
+May 21  16:04:44.205
+INFO 2026-05-21 21:04:44 _client.py:1025 HTTP Request: POST https://huggingface.co/api/repos/create "HTTP/1.1 409 Conflict"
+May 21  16:04:44.472
+INFO 2026-05-21 21:04:44 _client.py:1025 HTTP Request: POST https://huggingface.co/api/models/CarlosMunoz0/smolvla-so101-merged-20000step_bs16_ep305-v1/preupload/main "HTTP/1.1 200 OK"
+May 21  16:04:44.579
+INFO 2026-05-21 21:04:44 _client.py:1025 HTTP Request: POST https://huggingface.co/CarlosMunoz0/smolvla-so101-merged-20000step_bs16_ep305-v1.git/info/lfs/objects/batch "HTTP/1.1 200 OK"
+May 21  16:04:44.580
+Processing Files (0 / 0) : | | 0.00B / 0.00B
+May 21  16:04:44.849
+New Data Upload : | | 0.00B / 0.00B
+May 21  16:04:44.849
+...zer_processor.safetensors: 100%|██████████| 7.63kB / 7.63kB
+May 21  16:04:45.079
+Processing Files (1 / 1) : 100%|██████████| 7.63kB / 7.63kB, ???B/s
+May 21  16:04:45.079
+New Data Upload : | | 0.00B / 0.00B, ???B/s
+May 21  16:04:45.079
+...zer_processor.safetensors: 100%|██████████| 7.63kB / 7.63kB
+May 21  16:04:46.255
+INFO 2026-05-21 21:04:46 _client.py:1025 HTTP Request: POST https://huggingface.co/api/models/CarlosMunoz0/smolvla-so101-merged-20000step_bs16_ep305-v1/commit/main "HTTP/1.1 200 OK"
+May 21  16:04:46.362
+INFO 2026-05-21 21:04:46 _client.py:1025 HTTP Request: POST https://huggingface.co/api/repos/create "HTTP/1.1 409 Conflict"
+May 21  16:04:46.510
+INFO 2026-05-21 21:04:46 _client.py:1025 HTTP Request: POST https://huggingface.co/api/models/CarlosMunoz0/smolvla-so101-merged-20000step_bs16_ep305-v1/preupload/main "HTTP/1.1 200 OK"
+May 21  16:04:46.604
+INFO 2026-05-21 21:04:46 _client.py:1025 HTTP Request: POST https://huggingface.co/CarlosMunoz0/smolvla-so101-merged-20000step_bs16_ep305-v1.git/info/lfs/objects/batch "HTTP/1.1 200 OK"
+May 21  16:04:46.605
+Processing Files (0 / 0) : | | 0.00B / 0.00B
+May 21  16:04:46.625
+New Data Upload : | | 0.00B / 0.00B
+May 21  16:04:46.625
+...zer_processor.safetensors: 100%|██████████| 7.63kB / 7.63kB
+May 21  16:04:46.972
+Processing Files (1 / 1) : 100%|██████████| 7.63kB / 7.63kB, ???B/s
+May 21  16:04:46.972
+New Data Upload : | | 0.00B / 0.00B, ???B/s
+May 21  16:04:46.973
+...zer_processor.safetensors: 100%|██████████| 7.63kB / 7.63kB
+May 21  16:04:48.135
+INFO 2026-05-21 21:04:48 _client.py:1025 HTTP Request: POST https://huggingface.co/api/models/CarlosMunoz0/smolvla-so101-merged-20000step_bs16_ep305-v1/commit/main "HTTP/1.1 200 OK"
+May 21  16:04:51.329
+Done. Checkpoints under volume 'smolvla-lerobot-outputs' -> /outputs/train/smolvla_merged_20000step_bs16_ep305
+May 21  16:04:51.458
+Stopping app - local entrypoint completed.

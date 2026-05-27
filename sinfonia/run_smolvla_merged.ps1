@@ -1,20 +1,25 @@
-# ── Evaluar SmolVLA merged — cube_on_tray (leader) ───────────────────────────
-# Escena alineada con leader_record_cube_on_tray5.sh (defaults del robot, sin overrides lejanos).
-# XML dedicado: so101_cube_on_tray.xml
+# ── [DEPRECADO] Script genérico de eval — reemplazado por run_smolvla_stack_cube.ps1 ──
+# Este script evaluaba stack_cube sin xml_path explícito.
+# Usar run_smolvla_stack_cube.ps1 en su lugar.
 #
-# Uso:
-#   .\run_smolvla_cube_on_tray.ps1
+# Uso (legacy):
+#   .\run_smolvla_merged.ps1
 
 $ErrorActionPreference = "Stop"
 
-$STEPS = 30000
+# Solo cambia STEPS, BATCH_SIZE y NUM_EPISODES si usaste los mismos en modal_smolvla_finetune.py
+$STEPS = 20000
 $BATCH_SIZE = 16
-$NUM_EPISODES_TRAIN = 400
+$NUM_EPISODES = 400
 
-$RUN_TAG = "${STEPS}step_bs${BATCH_SIZE}_ep${NUM_EPISODES_TRAIN}"
+$RUN_TAG = "${STEPS}step_bs${BATCH_SIZE}_ep${NUM_EPISODES}"
+
+# Hub (por defecto) o ruta local, p. ej.:
+#   .\checkpoints_last\pretrained_model
+#   (tras: modal volume get smolvla-lerobot-outputs train/smolvla_merged_1000step_bs16_ep305/checkpoints/last ./checkpoints_last)
 $POLICY_PATH = "CarlosMunoz0/smolvla-so101-merged-4-tasks-${RUN_TAG}-v2.1"
 
-$EVAL_REPO = "local/eval_smolvla_cube_on_tray_${RUN_TAG}"
+$EVAL_REPO = "local/eval_smolvla_merged_${RUN_TAG}"
 $HF_CACHE = Join-Path $env:USERPROFILE ".cache\huggingface\lerobot\$EVAL_REPO"
 
 if (Test-Path $HF_CACHE) {
@@ -28,27 +33,24 @@ if (-not $env:HF_TOKEN) {
 
 Write-Host "Política: $POLICY_PATH"
 Write-Host "Eval dataset: $EVAL_REPO"
-Write-Host "Tarea: Put the cube on the tray"
-Write-Host "Escena: cubo [0.35, 0.2, 0.03] ±[0.05,0.05] -> bandeja [0.1, 0.35, 0.01] (joystick-v1)"
 Write-Host ""
 
 python (Join-Path $PSScriptRoot "run_smolvla_merged.py") `
   --robot.type=so101_mujoco `
-  --robot.xml_path="./robotstudio_so101/so101_cube_on_tray.xml" `
   --robot.randomize_scene=true `
   --robot.camera_pos_base="[0.5, 0.5, 0.6]" `
   --robot.camera_euler_base="[2.35619,0,-0.78539]" `
-  --robot.box_pos_base="[0.35, 0.2, 0.03]" `
-  --robot.box_pos_delta="[0.05, 0.05, 0.0]" `
-  --robot.box_size_base="[0.02, 0.02, 0.03]" `
-  --robot.box_size_delta="[0.0, 0.0, 0.0]" `
-  --robot.box_color_base="[0.1, 0.1, 0.1, 1.0]" `
+  --robot.box_pos_base="[0.25, 0.08, 0.03]" `
+  --robot.box_pos_delta="[0.06, 0.06, 0.0]" `
   --robot.box_color_delta="[0.0, 0.0, 0.0, 0.0]" `
-  --robot.tray_pos_base="[0.1, 0.35, 0.01]" `
+  --robot.box2_pos_base="[0.40, 0.05, 0.03]" `
+  --robot.box2_pos_delta="[0.05, 0.05, 0.0]" `
+  --robot.box2_color_delta="[0.0, 0.0, 0.0, 0.0]" `
+  --robot.tray_pos_base="[0.0, 0.0, -10.0]" `
   --robot.tray_pos_delta="[0.0, 0.0, 0.0]" `
-  --robot.tray_size_base="[0.08, 0.08, 0.01]" `
+  --robot.tray_size_base="[0.001, 0.001, 0.001]" `
   --robot.tray_size_delta="[0.0, 0.0, 0.0]" `
-  --robot.tray_color_base="[0.8, 0.1, 0.1, 1.0]" `
+  --robot.tray_color_base="[0.0, 0.0, 0.0, 0.0]" `
   --robot.tray_color_delta="[0.0, 0.0, 0.0, 0.0]" `
   --robot.enable_rgb=true `
   --robot.enable_depth=false `
@@ -56,10 +58,9 @@ python (Join-Path $PSScriptRoot "run_smolvla_merged.py") `
   --robot.enable_ee_pose=false `
   --robot.show_cv2=false `
   --dataset.repo_id=$EVAL_REPO `
-  --dataset.single_task="Put the cube on the tray" `
-  --dataset.episode_time_s=300 `
+  --dataset.single_task="Stack the black cube on top of the blue cube" `
+  --dataset.episode_time_s=1000 `
   --dataset.num_episodes=1 `
-  --dataset.reset_time_s=0 `
   --dataset.push_to_hub=false `
   '--dataset.rename_map={"observation.images.realsense": "observation.images.image"}' `
   --policy.path=$POLICY_PATH `

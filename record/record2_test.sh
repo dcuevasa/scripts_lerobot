@@ -1,5 +1,6 @@
-. dcuevas_hf_token.sh
-python ../FLAG-Embodied-data/lerobot_record2.py \
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+. "$SCRIPT_DIR/../dcuevas_hf_token.sh"
+python "$SCRIPT_DIR/../../FLAG-Embodied-data/lerobot_record2.py \
   --robot.type=so101_mujoco \
   --robot.randomize_scene=true \
   --robot.camera_pos_base='[0.8, 0.2, 0.6]' \

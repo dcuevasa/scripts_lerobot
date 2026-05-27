@@ -17,7 +17,7 @@
 
 param(
     [int]$N_EPISODES     = 5,
-    [int]$EPISODE_TIME_S = 1000,
+    [int]$EPISODE_TIME_S = 60,
     [string[]]$Tasks     = @(),
     [string]$OutputRoot  = (Join-Path $PSScriptRoot "eval_results")
 )
@@ -212,6 +212,7 @@ foreach ($modelPath in $MODELS) {
             "--dataset.single_task=$($t.Label)"
             "--dataset.episode_time_s=$EPISODE_TIME_S"
             "--dataset.num_episodes=$N_EPISODES"
+            "--dataset.reset_time_s=0"
             "--dataset.push_to_hub=false"
             '--dataset.rename_map={"observation.images.realsense": "observation.images.image"}'
             "--policy.path=$modelPath"
